@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Second Brain</title>
+		<link rel="stylesheet" href="css/brain.css">
+		<script src="js/utils.js"></script>
+		<script src="js/models.js"></script>
+	</head>
+	<body>
+		<div class="home-container" onclick="location.href='index';">
+			<div class="home_1">The</div>
+			<div class="home_2">SECOND</div>
+			<div class="home_3">BRAIN</div>
+		</div>
+		<img class="axis_info" id="axis_info" src="images/cube_axis.png" alt="Axis explanation">
+		<img class="info_button" id="info_button" src="images/info.png" alt="Show info">
+		<img class="close_button" id="close_button" src="images/close.png" alt="Close info">
+		<div class="color-scale-container" id="color-scale-container">
+			<div class="color_scale_header">Samverkan</div>
+			<div class="color_scale_high">< Hög</div>
+			<div class="color_scale_low">< Låg</div>
+			<div class="color_scale"></div>
+		</div>
+		<h1 id='title'></h1>
+		<div class='info'>
+			<div id='info-container' class='connection-container'>
+				<img class="arrow" id="left_button" src="/images/left.png" alt="Left button">
+				<h3 id='section_title_pres'></h3>
+				<img class="arrow" id="right_button" src="/images/right.png" alt="Right button">
+			</div>
+			<h3 id='section_title'></h3>
+			<p id='section_intro'></p>
+		</div>
+		
+		<script type="module">
+			
+		    import * as THREE from 'https://cdn.skypack.dev/three@0.136.0/build/three.module.js';
+		    import { OrbitControls } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls.js';
+		    import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/GLTFLoader.js';
+		    import { FontLoader } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/FontLoader.js';
+		    import { TextGeometry } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/geometries/TextGeometry.js';
+		    
+		    const start_color = [255, 5, 5];
+		    const end_color = [0, 50, 255];
+		    
+		    const pres_titles = ["The Second Brain", "Områden", "Mål och visioner", "Handlingsplaner", "Förutsättningar", "Forskning och fakta", "Historik", "Aktuellt", "Individnivå", "Gruppnivå", "Organisationsnivå", "Kopplingar", "Inaktiva områden", "Sätt igång"];
+		    const pres_texts = ["The Second Brain är ett strukturerat stöd för att arbeta effektivt mot ett uppsatt mål. En digital lösning som hanterar gemensamma och individuella förutsättningar, arbetssätt, strategier, mål och visioner.<br><br>Varje del av kuben representerar ett område som är viktigt att ta hänsyn till och arbeta med. The Second Brain: <ol><li>Skapar förståelse för projektets alla delar.</li><li>Säkerställer att varje apsekt uppmärksammas.</li><li>Synliggör hur olika områden samverkar med varandra.</li></ol>",
+		    					"Inom varje område finns det olika uppgifter som ska genomföras. The Second Brain erbjuder möjlighet att arbeta strukturerat inom varje område. Det kan vara att: <ol><li>Sätta upp kort- eller långsiktiga mål.</li><li>Samla bakgrundsinformation.</li><li>Göra någon typ av analys.</li><li>Skriva en handlingsplan på kort eller lång sikt.</li><li>Utvärdera ett tidigare stadie i projektet.</li></ol>Klicka på ett område för mer information om vilken typ av arbete som ska utföras där. Närmast följer en mer utförlig beskrivning av kubens olika nivåer.",
+		    					"På den här nivån behandlas projektets mål och visioner, exempelvis: <ul><li>Affärsidé</li><li>Verksamhetsidé</li><li>Affärsmodell</li><li>Värderingar</li><li>Framtidsvision</li><li>Kortsiktiga mål</li><li>Övergripande mål</li></ul>",
+		    					"Här upprättas konkreta handlingsplaner för vad som ska göras för att uppnå målen. Det är viktigt att handlingsplanerna är realistiska med tanke på förutsättningarna samt att de är baserade på fakta, analyser av liknande företeelser och lärdomar av tidigare stadier.<br><br>Handlingsplanerna kan vara konkreta planer för vad som ska göras den närmaste tiden eller mer övergripande strategier och åtgärdsplaner.",
+		    					"Här analyseras vilka förutsättningar som krävs för att målen ska uppnås och utvärderas vilka förutsättningar som finns för tillfället. Det kan handla om förutsättningar gällande:<ul><li>Marknaden</li><li>Konkurrenter</li><li>Kompetens</li><li>Tidsaspekter</li><li>Lokaler</li><li>Ekonomi</li><li>Kultur</li><li>Personliga egenskaper</li></ul>",
+		    					"Här samlas fakta och forskning som beslutsunderlag för utformningen av förutsättningar, mål och handlingsplaner. Det kan vara:<ul><li>Internutbildningar</li><li>Marknadsanalyser</li><li>Expertråd</li><li>Organisationsmodeller</li><li>Workshops</li><li>Forskningsrapporter</li><li>Medarbetarundersökningar</li></ul>",
+		    					"Ett projekt bygger som regel på en iterativ process där tidiga versioner ersätts av mer utvecklade, komplexa eller förfinade versioner. På den här nivån finns arkiverade versioner av projektet som har eller ska utvärderas och analyseras, exempelvis genom användartestning, kundundersökningar eller SWOT-analys.<ul><li>Vad har inte fungerat och varför?</li><li>Vilka styrkor kan bibehållas?</li><li>Vilka svagheter behöver förbättras?</li><li>Vilka funktioner eller kompetenser saknas?</li>",
+		    					"Här sker det största arbetet. Aktuella förutsättningar, handlingsplaner och mål uppdateras och revideras i takt med projektets framsteg eller motgångar. Om förutsättningarna förändras behöver ofta mål och handlingsplaner anpassas efter de nya förutsättningarna. Samtidigt ska arbetet på den här nivån anpassas efter forskning, fakta och analyser av tidigare stadier i projektet.<br><br>The Second Brain väver samman dessa avvägningar. Alla perspektiv tas i beaktande och eventuella brister synliggörs.<br><br>När en version av projektet inte längre är aktuell kan den utvärderas och analyseras för att sedan arkiveras till Historiken.",
+		    					"På den här nivån uppmärksammas varje individ. Vilka kompetenser finns och vilka saknas? Hur ska varje enskild individ arbeta för att uppnå både personliga och mer övergripande målsättningar?",
+		    					"Här analyseras projektet på gruppnivå. Hur arbetas det på gruppnivå och vilken funktion fyller gruppen? Vilka grupper samverkar med varandra och hur? Gruppens arbete måste var anpassat efter individuella förutsättningar och samtidigt sträva efter att uppnå övergripande målsättningar.<br><br>En grupp kan till exempel vara:<ul><li>Dotterbolag</li><li>Avdelning</li><li>Team</li><li>Årskull</li><li>Ledningsgrupp</li></ul>",
+		    					"På den här nivån definieras de övegripande målen och visionerna. Här sker också det övergripande strategiska arbetet.<br><br>Mål och strategier ska genomsyra arbetet på lägre nivåer samtidigt som de behöver anpassas efter aktuella förusättningar för att vara realistisika och genomförbara.",
+		    					"Projektets områden samverkar med varandra på olika sätt och över flera nivåer. The Second Brain hanterar områden som är nära kopplade till varandra och ger möjlighet att bedöma hur väl kopplade områden fungerar tillsammans.<br><br>Områden som samverkar väl markeras med blått och områden som inte fungerar tillsammans med andra markeras med rött.<br><br>Röd färg indikerar att området kräver mer arbete eller att kopplade områden behöver förändras.",
+		    					"Områden som inte är relevanta för projektet kan inaktiveras. Ett helt nytt projekt har till exempel sällan någon Historik och i ett enmansprojekt är troligtvis varken Grupp- eller Organisationsnivån relevant.",
+		    					'The Second Brain Cube är en digital lösning för planering, genomförande, utveckling och uppföljning av alla stadier i ett projekt. Det är ett kraftfullt verktyg som strukturerar komplexa saker på tydliga sätt.<br><br>The Second Brain fungerar i många olika sammanhang eftersom liknande strukturer och mekanismer ligger till grund för att ett mål ska uppnås.<br><br>Ett lämpligt första steg är att definiera projektets mål och visioner på kort och lång sikt. Stäng guiden, dubbelklicka på området "Målsättningar på organisationsnivå" och lägg till en artikel kring projektets mål och visioner.'];
+		    
+		    const scene = new THREE.Scene();
+		    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+		    const renderer = new THREE.WebGLRenderer( { antialias: true } );
+		    const geometry = new THREE.BoxGeometry();
+		    
+		    let cubes = JSON.parse(localStorage.getItem("cubes"));
+		    let current_cube;
+		    for (let i = 0; i < cubes.length; i++) {
+				if(cubes[i].id == localStorage.getItem("current_cube")) {
+					current_cube = cubes[i];
+				}
+			}
+			document.getElementById("title").innerHTML = current_cube.title;
+			if (parseInt(localStorage.getItem("pres_idx")) >= 0) {
+				current_cube = JSON.parse(localStorage.getItem("pres_cube"));
+				showPresentation(parseInt(localStorage.getItem("pres_idx")), current_cube);
+				document.getElementById("close_button").style.display = "block";
+				document.getElementById("info_button").style.display = "none";
+			} else {
+				document.getElementById("info_button").style.display = "block";
+			}
+			
+		    const controls = new OrbitControls( camera, renderer.domElement );
+		    const gltfLoader = new GLTFLoader();
+		    
+		    const color = 0xFFFFFF;
+		    const intensity = 1;
+		    const light = new THREE.DirectionalLight(color, intensity);
+		    light.position.set(-1, 2, 4);
+		    scene.add(light);	
+		    scene.add( new THREE.AmbientLight( 0xffffff, 0.4 ) );
+			
+		    let objects = [];
+		    let secs = current_cube.sections;
+		    for (let pos = 0; pos < secs.length; pos++) {
+		    	const cube_color = getColor(current_cube, secs[pos]);
+		    	const material = new THREE.MeshPhongMaterial( cube_color );
+		    	const cube = new THREE.Mesh( geometry, material );
+		    	let x = 1;
+		    	let y = 1;
+		    	let z = 1;
+		    	if (pos % 3 == 0) {
+					x = -1;
+				} else if (pos % 3 == 1) {
+					x = 0;
+				}
+				if (Math.floor(pos / 3) % 3 == 0) {
+					y = -1;
+				} else if (Math.floor(pos / 3) % 3 == 1) {
+					y = 0;
+				}
+				if (Math.floor(pos / 9) == 0) {
+					z = -1;
+				} else if (Math.floor(pos / 9) == 1) {
+					z = 0;
+				}
+				const gap = 1.25;
+				cube.position.set( x * gap, y * gap, z * gap );
+				cube.material.transparent = true;
+		    	cube.material.opacity = 0.85; 
+		    	if(!secs[pos].active) {
+		    		cube.material.opacity = 0.4; 
+		    	}
+		    	cube.userData = {
+                	id: secs[pos].id,
+                	title: secs[pos].title,
+                	intro: secs[pos].intro,
+                	active: secs[pos].active,
+                	strength: getStrength(current_cube, secs[pos])
+            	};
+            	scene.add( cube );
+            	objects.push(cube);
+		    }
+		    
+		    camera.position.set(4.2,3.2,4.2);
+		    camera.lookAt(new THREE.Vector3(0,0,0)); 
+		    let raycaster = new THREE.Raycaster();
+		    let mouse = new THREE.Vector2();
+		    renderer.setPixelRatio(window.devicePixelRatio);
+		    
+		    renderer.setSize( window.innerWidth, window.innerHeight );
+		    document.body.appendChild( renderer.domElement );
+		    
+
+			window.addEventListener( 'resize', onWindowResize );
+		    
+		    document.addEventListener( 'dblclick', onDocumentDoubleClicked, false );
+		    document.addEventListener("mousedown", onMouseDown);
+		    document.getElementById("info_button").addEventListener("click", openInfo);
+		    document.getElementById("close_button").addEventListener("click", closeInfo);
+		    
+		    document.getElementById("left_button").addEventListener('click', (() => {
+		    	let idx = parseInt(localStorage.getItem("pres_idx"));
+				if(idx == 0) {
+					idx = pres_texts.length - 1;
+				} else {
+					idx -= 1;
+				}
+				localStorage.setItem("pres_idx", idx + "");
+				location.reload();
+			}));
+			
+			document.getElementById("right_button").addEventListener('click', (() => {
+				let idx = parseInt(localStorage.getItem("pres_idx"));
+				idx = (idx + 1) % pres_texts.length;
+				localStorage.setItem("pres_idx", idx + "");
+				location.reload();
+			}));
+		    
+		    function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+
+			
+			
+			function onDocumentDoubleClicked(event) {
+				if (parseInt(localStorage.getItem("pres_idx")) < 0) {
+					event.preventDefault();
+					mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+					mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+					raycaster.setFromCamera( mouse, camera );
+					var intersects = raycaster.intersectObjects( objects );
+					if (intersects.length > 0) {
+		    			localStorage.setItem('current_section', intersects[0].object.userData.id);
+		    			window.location.href = "section.html";
+					}
+    			}
+			}
+			
+			function onMouseDown(event) {
+    			event.preventDefault();
+    			mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+				mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    			raycaster.setFromCamera( mouse, camera );
+				var intersects = raycaster.intersectObjects( objects );
+				for (let i = 0; i < objects.length; i++) {
+					let opacity;
+					if(objects[i].userData.active) {
+						opacity = 0.85;
+					} else {
+						opacity = 0.4;
+					}
+    				const material = new THREE.MeshPhongMaterial( { color: "#ff0000" } );
+    				material.color = objects[i].material.color;
+    				material.transparent = true;
+    				material.opacity = opacity; 
+    				objects[i].material = material;
+    			}
+    			if (intersects.length > 0) {
+        			document.getElementById("section_title").innerHTML = intersects[0].object.userData.title;
+        			document.getElementById("section_intro").innerHTML = intersects[0].object.userData.intro;
+        			intersects[0].object.material.opacity = 1; 
+        			if(intersects[0].object.userData.active) {
+        				intersects[0].object.material.emissive = intersects[0].object.material.color; 
+        				document.getElementById("section_title").innerHTML += " (" + intersects[0].object.userData.strength + "&nbsp%)";
+        			} else {
+        				document.getElementById("section_title").innerHTML += " (Inaktiv)";
+        				intersects[0].object.material.opacity = 0.7; 
+        			};
+    			}
+			}
+
+			function openInfo(event) {
+    			event.preventDefault();
+				if (parseInt(localStorage.getItem("pres_idx")) < 0) {
+					localStorage.setItem("pres_idx", "0");
+					let pres_cube = new_std_cube("");
+					localStorage.setItem("pres_cube", JSON.stringify(pres_cube));
+					location.reload();
+				}
+			}
+			
+			function closeInfo(event) {
+    			event.preventDefault();
+				localStorage.setItem("pres_idx", "-1");
+				location.reload();
+			}
+			
+			function showPresentation(idx, cube) {
+				let title = "Guide (";
+				document.getElementById("left_button").style.display = "block";
+				document.getElementById("right_button").style.display = "block";
+				document.getElementById("axis_info").style.display = "block";
+				document.getElementById("info-container").style.alignItems = "center";
+				document.getElementById("info-container").style.justifyContent = "center";
+				document.getElementById("section_title_pres").style.textAlign = "center";
+				document.getElementById("section_title_pres").style.textAlign = "center";
+				document.getElementById("section_title_pres").style.width = "200px";
+				document.getElementById("section_title_pres").innerHTML = pres_titles[idx];
+				document.getElementById("section_intro").innerHTML = pres_texts[idx];
+				title += (idx + 1) + "";
+				switch (idx) {
+					case 2:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 3) % 3 == 2) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 3:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 3) % 3 == 1) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 4:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 3) % 3 == 0) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 5:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(i % 3 == 0) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 6:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(i % 3 == 1) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 7:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(i % 3 == 2) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 8:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 9) == 0) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 9:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 9) == 1) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 10:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 9) == 2) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 11:
+						for (let i = 0; i < cube.sections.length; i++) {
+						let connections = getSectionConnections(cube, cube.sections[i].id)
+							for (let j = 0; j < connections.length; j++) {
+								if(Math.random() < 0.5) {
+									connections[j].strength = 0;
+								} else {
+									connections[j].strength = 100;
+								}
+							}
+						}
+						document.getElementById("color-scale-container").style.display = "block";
+						document.getElementById("axis_info").style.display = 'none';
+					break;
+					case 12:
+						for (let i = 0; i < cube.sections.length; i++) {
+						let connections = getSectionConnections(cube, cube.sections[i].id)
+							for (let j = 0; j < connections.length; j++) {
+								if(Math.random() < 0.5) {
+									connections[j].strength = 0;
+								} else {
+									connections[j].strength = 100;
+								}
+							}
+						}
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 9) == 0) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 13:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(i == 26) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+				}
+				title += "/" + pres_texts.length + ")";
+				document.getElementById("title").innerHTML = title;
+			}
+			
+			function restore_active() {
+				let active_list = JSON.parse(localStorage.getItem("active_list"));
+				let cube;
+				let cubes = JSON.parse(localStorage.getItem("cubes"));
+				for (let i = 0; i < cubes.length; i++) {
+					if(cubes[i].id == localStorage.getItem("current_cube")) {
+						cube = cubes[i];
+					}
+				}
+				for (let i = 0; i < cube.sections.length; i++) {
+					cube.sections[i].active = active_list[i];
+				}
+				localStorage.setItem("cubes", JSON.stringify(cubes));
+				localStorage.setItem("pres_idx", "-1");
+				location.reload();
+			}
+			
+			function getColor(cube, section) {
+				if(!section.active) {
+					return {color: "#333"}
+				}
+				let strength = getStrength(cube, section);
+				let r, g;
+				let b = "00";
+				if(strength <= 50) {
+					r = "ff";
+					g = (255 * strength) / 50;
+					g = Math.round(g).toString(16);
+					if(g.length == 1) {
+						g = "0" + g;
+					}
+				} else {
+					g = "ff";
+					r = (255 * (100 - strength)) / 50;
+					r = Math.round(r).toString(16);
+					b = (50 * (strength - 50)) / 50;
+					b = Math.round(b).toString(16);
+					if(r.length == 1) {
+						r = "0" + r;
+					}
+					if(b.length == 1) {
+						b = "0" + b;
+					}
+				}
+				
+				let rr = Math.round(start_color[0] + ((end_color[0] - start_color[0]) / 100) * strength).toString(16);
+				if(rr.length == 1) {
+					rr = "0" + rr;
+				}
+				let gg = Math.round(start_color[1] + ((end_color[1] - start_color[1]) / 100) * strength).toString(16);
+				if(gg.length == 1) {
+					gg = "0" + gg;
+				}
+				let bb = Math.round(start_color[2] + ((end_color[2] - start_color[2]) / 100) * strength).toString(16);
+				if(bb.length == 1) {
+					bb = "0" + bb;
+				}
+				
+				let colorString = "#" + r + g + b;
+				colorString = "#" + rr + gg + bb;
+				return {color: colorString};
+			}
+
+		    function animate() {
+		        requestAnimationFrame( animate );
+		        renderer.render( scene, camera );
+		    }
+		    animate();
+
+		</script>
+	</body>
+</html>

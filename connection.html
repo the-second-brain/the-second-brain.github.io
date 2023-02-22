@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/connection.css">
+		<title>The Second Brain</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="js/utils.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+	</head>
+    <body>
+    	<div class="home-container" onclick="location.href='index';">
+			<div class="home_1">The</div>
+			<div class="home_2">SECOND</div>
+			<div class="home_3">BRAIN</div>
+		</div>
+    	<img class="home-button" id="home" src="/favicon.ico" alt="Go home">
+    	<h1 id='title'></h1>
+		<p id='intro' class="intro"></p>
+		
+		<div class='connection-div'>
+			<h3 id='connection_header'>Kopplat område</h3>
+			<div class='connection-container'>
+				<img class="arrows" id="left_button" src="/images/left.png" alt="Left button">
+				<div class='connection-text' id='connection'></div>
+				<img class="arrows" id="right_button" src="/images/right.png" alt="Right button">
+			</div>
+			<p id='slide-intro' style='text-align:center; width: 80%; margin:0 auto; padding-bottom: 1em;'></p>
+			<div class="slidecontainer">
+				<span id="demo" class="demo"></span>
+				<input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+			</div>
+		</div>
+		
+		<div class="grid-container">
+			<div id='articles' class="item1"></div>
+			<div id='articles2' class="item2"></div>
+		</div>
+		
+		<script>
+		    let section = getCurrentSection();
+		    if (!localStorage.hasOwnProperty('connection_index')) {
+				localStorage.setItem("connection_index", "0");
+			}
+
+			let connections = getCurrentConnections();
+			for(let j = connections.length - 1; j >= 0 ; j--) {
+				for(let i = 0; i < connections[j].section_ids.length; i++) {
+					if(connections[j].section_ids[i] != section.id) {
+						let other_sec = getSection(getCurrentCube(), connections[j].section_ids[i]);
+						if(!other_sec.active) {
+							connections.splice(j, 1);
+							break;
+						}
+					}
+				}
+			}
+			let connection_idx = parseInt(localStorage.getItem("connection_index"));
+			if(connection_idx >= connections.length) {
+				connection_idx = 0;
+			}
+			
+			document.getElementById('connection_header').innerHTML += "  (" + (connection_idx + 1) + "/" + connections.length + ")";
+			
+		    let connection = connections[connection_idx];
+		    document.getElementById('slide-intro').innerHTML = connection.intro;
+		    let other_section;
+		    for(let i = 0; i < connection.section_ids.length; i++) {
+		    	if(connection.section_ids[i] != section.id) {
+		    		other_section = getSection(getCurrentCube(), connection.section_ids[i]);
+		    	}
+		    }
+		    
+		    sections = [section, other_section];
+		    cols = ['articles', 'articles2'];
+		    
+		    document.getElementById('title').innerHTML = section.title;
+		    document.getElementById('intro').innerHTML = 'Det finns ' + connections.length + ' områden kopplade till "' + section.title + '". Studera artiklarna och besvara frågan i rutan nedan. Att två områden inte stämmer väl överens indikerar att det krävs mer arbete. Vad kan förändras för att samtliga områden ska fungera tillsammans?';
+		    document.getElementById('connection').innerHTML = other_section.title;
+		    
+		    for(let k = 0; k < 2; k++) {
+		    	section = sections[k];
+				document.getElementById(cols[k]).innerHTML = "<h2>" + section.title + "</h2>";
+				let html = document.getElementById(cols[k]).innerHTML;
+				for (let i = 0; i < section.articles.length; i++) {
+					html += "<div style='display: flex; width: 90%; margin: 2em auto 1em auto;'><div class='article_header'>" +
+					section.articles[i].title + "</div></div>";
+					html += "<div class='tab'>";
+					let tabs_list = "";
+					for (let j = 0; j < section.articles[i].tabs.length; j++) {
+						tabs_list += "'" + section.articles[i].tabs[j].id + "'";
+						if(j < section.articles[i].tabs.length - 1) {
+							tabs_list += ", ";
+						}
+					}
+					for (let j = 0; j < section.articles[i].tabs.length; j++) {
+						s = 'onclick="';
+						s += "openTab(event, '" + section.articles[i].tabs[j].id + "', '" + section.articles[i].id +
+						"', [" + tabs_list + "])";
+						s += '"';
+						html += "<button class='" + section.articles[i].id + "' " + s + ">" +
+						section.articles[i].tabs[j].title + "</button>";
+					}
+					html += "</div>";
+					for (let j = 0; j < section.articles[i].tabs.length; j++) {
+						html += "<div id='" + section.articles[i].tabs[j].id +"' class='tabcontent'><p>"
+						+ section.articles[i].tabs[j].text + "</p></div>";
+					}
+				}
+				document.getElementById(cols[k]).innerHTML = html;
+				
+				for (let i = 0; i < section.articles.length; i++) {
+					if (document.getElementsByClassName(section.articles[i].id).length > 0) {
+						document.getElementsByClassName(section.articles[i].id)[0].click();
+					}
+				}
+			}
+			
+			document.getElementById("left_button").addEventListener('click', (() => {
+				if(connection_idx == 0) {
+					connection_idx = connections.length - 1;
+				} else {
+					connection_idx -= 1;
+				}
+				localStorage.setItem("connection_index", connection_idx + "");
+				location.reload();
+			}));
+			
+			document.getElementById("right_button").addEventListener('click', (() => {
+				connection_idx = (connection_idx + 1) % connections.length;
+				localStorage.setItem("connection_index", connection_idx + "");
+				location.reload();
+			}));
+			
+			document.getElementById('home').addEventListener('click', (() => {
+			 		window.location.href = "brain.html";
+			}));
+			
+			document.getElementById("myRange").step = "20";
+			
+			let slider = document.getElementById("myRange");
+			slider.value = connection.strength;
+			let output = document.getElementById("demo");
+			output.innerHTML = slider.value + " %";
+
+			slider.oninput = function() {
+				output.innerHTML = this.value + " %";
+				connection.strength = this.value;
+				let cube, section;
+				let connections = [];
+				let cubes = JSON.parse(localStorage.getItem("cubes"));
+				for (let i = 0; i < cubes.length; i++) {
+					if(cubes[i].id == localStorage.getItem("current_cube")) {
+						cube = cubes[i];
+					}
+				}
+				for (let i = 0; i < cube.sections.length; i++) {
+					if(cube.sections[i].id == localStorage.getItem("current_section")) {
+						section = cube.sections[i];
+					}
+				}
+				for (let i = 0; i < section.connections.length; i++) {
+					for (let j = 0; j < cube.connections.length; j++) {
+						if(cube.connections[j].id == section.connections[i]) {
+							connections.push(cube.connections[j]);
+						}
+					}
+				}
+				for (let i = 0; i < connections.length; i++) {
+					if(connections[i].id == connection.id) {
+						connections[i].strength = this.value;
+					}
+				}
+				localStorage.setItem("cubes", JSON.stringify(cubes));
+			}
+			
+			function openTab(evt, tabId, buttonId, tabs) {
+				var i, tablinks;
+				for (i = 0; i < tabs.length; i++) {
+					document.getElementById(tabs[i]).style.display = "none";
+				}
+				tablinks = document.getElementsByClassName(buttonId);
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				}
+				document.getElementById(tabId).style.display = "block";
+				evt.currentTarget.className += " active";
+			}
+		</script>
+    </body>
+</html>

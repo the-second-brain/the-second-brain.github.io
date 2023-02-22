@@ -1,1 +1,111 @@
-Hello World
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>The Second Brain</title>
+		<link rel="stylesheet" href="css/start.css">
+		<script src="js/utils.js"></script> 
+		<script src="js/models.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+	</head>
+    <body>
+    	<h1>The Second Brain</h1>
+		<p class="intro">Både i det privata och på arbetet drömmer vi om och strävar efter förändringar som sällan eller aldrig blir av. Vi fortsätter med samma beteenden om och om igen trots att de inte leder till det vi verkligen vill.<br><br>Forskning visar att mer än 70 % av alla försök till förändring misslyckas. Det beror ofta på att de flesta baserar sina beslut på känslor och vanor istället för fakta och rationella överväganden. The Second Brain hjälper dig att ta bättre beslut för att få igenom förändring och organisera dina projekt för att nå framgång.</p>
+		<div id='project-container' class='container'>
+			<div style="font-size:1.1rem; display: flex;">
+				<p>Projekt</p>
+				<div id='add_button2' class="add_button" style="margin-left:1em;">
+					+
+					<span class="tooltiptext" style="padding-bottom:0.4em;"> Lägg till projekt</span>
+				</div>
+				<div class="add_button" >
+					<img id="download_button" src="/images/download.png" alt="Download button" style="height:0.7em; padding-top:0.44em">
+					<span class="tooltiptext"> Ladda ned alla projekt</span>
+				</div>
+				<div class="add_button" >
+					<img id="upload_button" src="/images/upload.png" alt="Upload button" style="height:0.7em; padding-top:0.44em">
+					<span class="tooltiptext"> Ladda upp sparade projekt</span>
+				</div>
+			</div>
+			<div id='name_input' style="display: none;">
+				Namn:
+				<div style="font-size:1.1rem; display: flex;">         
+		   	       <textarea style="width: 50%" id= name_textarea cols="40" rows="1" type="text" name="cube_name"></textarea>
+		   	       <div id='submit_btn' class='container3'>Lägg till</div>   
+	 	   		</div>
+ 	   		</div>
+		</div>
+		<canvas id="background"; class="background"></canvas>
+		
+    	<script>
+    		if (!localStorage.hasOwnProperty('cubes')) {
+				localStorage.setItem("cubes", JSON.stringify([]));
+			}
+			if (!localStorage.hasOwnProperty('pres_cube')) {
+				let cube = new_std_cube("Presentation");
+				localStorage.setItem("pres_cube", JSON.stringify(cube));
+			}
+			localStorage.setItem("pres_idx", "-1");
+			let cubes = JSON.parse(localStorage.getItem("cubes"));
+			let pc = document.getElementById('project-container');
+			for (let i = 0; i < cubes.length; i++) {
+			    pc.innerHTML += "<div style='display: flex;'><div id='div_id_" + cubes[i].id + i + "' class='container2'>" + cubes[i].title + "</div><img id='remove_button' onclick='confirm_remove(" + i + ")' src='/images/remove.png' alt='Remove button' style='cursor:pointer; height:1.5em; padding-top:0.9em; margin-left:0.8em;'></div>";
+			}
+			for (let i = 0; i < cubes.length; i++) {
+			 	document.getElementById("div_id_" + cubes[i].id + i).addEventListener('click', (() => {
+					localStorage.setItem("current_cube", cubes[i].id);
+					window.location.href = "brain.html";
+				}));
+			}
+			document.getElementById("add_button2").addEventListener('click', (() => {
+				document.getElementById("name_input").style.display = 'block';
+				document.getElementById("name_textarea").focus();
+			}));
+			document.getElementById("submit_btn").addEventListener('click', (() => {
+				let cube = new_std_cube(document.getElementById("name_textarea").value);
+				if (!localStorage.hasOwnProperty('cubes')) {
+					localStorage.setItem("cubes", JSON.stringify([]));
+				}
+				let cubes = JSON.parse(localStorage.getItem("cubes"));
+				cubes.push(cube);
+				localStorage.setItem("cubes", JSON.stringify(cubes));
+				location.reload();
+			}));
+			document.getElementById("download_button").addEventListener('click', (() => {
+				downloadJson(localStorage.getItem("cubes"));
+			}));
+			document.getElementById("upload_button").addEventListener('click', (() => {
+				loadAndMerge();
+			}));
+				
+			function confirm_remove(index) {
+			    let text = "Är du säker på att du vill ta bort projektet?\nAllt innehåll kommer att raderas.";
+			    if (confirm(text) == true) {
+				  let cubes = JSON.parse(localStorage.getItem("cubes"));
+				  cubes.splice(index, 1);
+				  localStorage.setItem("cubes", JSON.stringify(cubes));
+				  location.reload();
+			    }
+			}
+			
+			let num_particles = window.innerHeight * window.innerWidth / 5000;
+			let body = document.body, html = document.documentElement;
+
+			let height = Math.max( body.scrollHeight, body.offsetHeight, 
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+			document.getElementById('background').style.height = height;
+			window.onload = function() {
+			
+			  Particles.init({
+			    selector: '.background',
+			    maxParticles: num_particles.toFixed(0),
+		        color: '#333333',
+		        connectParticles: true,
+		        speed: 0.2
+			  });
+
+			};
+			
+		</script>
+    </body>
+</html>
