@@ -10,7 +10,7 @@
 		<script src="js/models.js"></script>
 	</head>
 	<body>
-		<div class="home-container" onclick="location.href='index';">
+		<div class="home-container" onclick="location.href='https://the-second-brain.github.io/';">
 			<div class="home_1">The</div>
 			<div class="home_2">SECOND</div>
 			<div class="home_3">BRAIN</div>
@@ -188,7 +188,7 @@
 					var intersects = raycaster.intersectObjects( objects );
 					if (intersects.length > 0) {
 		    			localStorage.setItem('current_section', intersects[0].object.userData.id);
-		    			window.location.href = "section.html";
+		    			window.location.href = "section";
 					}
     			}
 			}

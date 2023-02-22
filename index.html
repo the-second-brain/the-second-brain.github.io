@@ -54,7 +54,7 @@
 			for (let i = 0; i < cubes.length; i++) {
 			 	document.getElementById("div_id_" + cubes[i].id + i).addEventListener('click', (() => {
 					localStorage.setItem("current_cube", cubes[i].id);
-					window.location.href = "brain.html";
+					window.location.href = "brain";
 				}));
 			}
 			document.getElementById("add_button2").addEventListener('click', (() => {

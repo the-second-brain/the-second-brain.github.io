@@ -112,9 +112,9 @@ function new_std_section(pos) {
 		title += "målsättningar ";
 		if (pos % 3 == 2) {
 			title = "Målsättningar ";
-			section.articles.push(new_std_article());
-			section.articles.push(new_std_article2());
-			section.articles.push(new_std_article3());
+			//section.articles.push(new_std_article());
+			//section.articles.push(new_std_article2());
+			//section.articles.push(new_std_article3());
 		}
 	}
 	if (Math.floor(pos / 9) == 0) {
