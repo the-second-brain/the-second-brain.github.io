@@ -121,10 +121,10 @@ function new_std_section(pos) {
 	}
 	section.title = title;
 	switch (pos) {
-		case 20:
+		case 24:
 			section.intro = 'Här finns fakta och forskning samlat om hur man arbetar med Mission för en organisation. Det kan vara ett större eller mindre uppdrag, på kortare eller längre sikt.<ul><li>Hur arbetar man med en affärs- eller verksamhetsidé?</li><li>Hur formulerar man ett uppdrag med syfte och mål?</li><li>Hur sätter man effektiva mål?</li><li>Hur formulerar man kraftfulla visioner?</li><li>Hur följer man upp ett uppdrag?</li></ul>'
 		break;
-		case 23:
+		case 25:
 			section.intro = 'Här finns tidigare Missions lagrade med vad det gav för resultat. Syftet är att dra lärdomar inför nya uppdrag.<ul><li>Hur såg uppdraget ut?</li><li>Vad skulle uppnås?</li><li>Vilka resultat nåddes?</li><li>Hur skedde uppföljningen?</li></ul>'
 		break;
 		case 26:
