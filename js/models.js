@@ -93,39 +93,44 @@ function new_std_section(pos) {
 	section.pos = pos;
 	section.active = 1;
 	title = "";
-	if (pos % 3 == 0) {
-		title += "Fakta kring ";
-	} else if (pos % 3 == 1) {
-		title += "Tidigare ";
-	}
 	if (Math.floor(pos / 3) % 3 == 0) {
-		title += "förutsättningar ";
-		if (pos % 3 == 2) {
-			title = "Förutsättningar ";
-		}
+		title += "Förutsättningar<br>";
 	} else if (Math.floor(pos / 3) % 3 == 1) {
-		title += "handlingsplaner ";
-		if (pos % 3 == 2) {
-			title = "Handlingsplaner ";
-		}
+		title += "Aktiviteter<br>";
 	} else {
-		title += "målsättningar ";
+		title += "Mission<br>";
 		if (pos % 3 == 2) {
-			title = "Målsättningar ";
 			//section.articles.push(new_std_article());
 			//section.articles.push(new_std_article2());
 			//section.articles.push(new_std_article3());
 		}
 	}
 	if (Math.floor(pos / 9) == 0) {
-		title += "på individnivå";
+		title += "Individer<br>";
 	} else if (Math.floor(pos / 9) == 1) {
-		title += "på gruppnivå";
+		title += "Grupper<br>";
 	} else {
-		title += "på organisationsnivå";
+		title += "Organisation<br>";
+	}
+	if (pos % 3 == 0) {
+		title += "Fakta<br>";
+	} else if (pos % 3 == 1) {
+		title += "Historik<br>";
+	} else {
+		title += "Aktuella planer<br>";
 	}
 	section.title = title;
-	section.intro = 'Här finns en kort beskrivning av området "' + title + '". Texten förklarar området och beskriver arbetet som ska utföras här.';
+	switch (pos) {
+		case 20:
+			section.intro = 'Här finns fakta och forskning samlat om hur man arbetar med Mission för en organisation. Det kan vara ett större eller mindre uppdrag, på kortare eller längre sikt.<ul><li>Hur arbetar man med en affärs- eller verksamhetsidé?</li><li>Hur formulerar man ett uppdrag med syfte och mål?</li><li>Hur sätter man effektiva mål?</li><li>Hur formulerar man kraftfulla visioner?</li><li>Hur följer man upp ett uppdrag?</li></ul>'
+		break;
+		case 23:
+			section.intro = 'Här finns tidigare Missions lagrade med vad det gav för resultat. Syftet är att dra lärdomar inför nya uppdrag.<ul><li>Hur såg uppdraget ut?</li><li>Vad skulle uppnås?</li><li>Vilka resultat nåddes?</li><li>Hur skedde uppföljningen?</li></ul>'
+		break;
+		case 26:
+			section.intro = 'Här arbetar man med Mission för en organisation. Det kan vara ett större eller mindre uppdrag, på kortare eller längre sikt.<ul><li>Hur ser uppdraget ut?</li><li>Vad skall uppnås?</li><li>Hur ser uppföljningen ut?</li></ul>Exempel: Affärsidé, verksamhetsidé, projektidé, visioner och mål.'
+		break;
+	}
 	//section.articles.push(new_std_article());
 	
 	return section;

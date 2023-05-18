@@ -4,18 +4,15 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>The Second Brain</title>
+		<title>QBrain</title>
 		<link rel="stylesheet" href="css/brain.css">
 		<script src="js/utils.js"></script>
 		<script src="js/models.js"></script>
 	</head>
 	<body>
 		<div class="home-container" onclick="location.href='https://the-second-brain.github.io/';">
-			<div class="home_1">The</div>
-			<div class="home_2">SECOND</div>
-			<div class="home_3">BRAIN</div>
+			<div class="home_2">QBrain</div>
 		</div>
-		<img class="axis_info" id="axis_info" src="images/cube_axis.png" alt="Axis explanation">
 		<img class="info_button" id="info_button" src="images/info.png" alt="Show info">
 		<img class="close_button" id="close_button" src="images/close.png" alt="Close info">
 		<div class="color-scale-container" id="color-scale-container">
@@ -25,12 +22,17 @@
 			<div class="color_scale"></div>
 		</div>
 		<h1 id='title'></h1>
-		<div class='info'>
-			<div id='info-container' class='connection-container'>
-				<img class="arrow" id="left_button" src="/images/left.png" alt="Left button">
-				<h3 id='section_title_pres'></h3>
-				<img class="arrow" id="right_button" src="/images/right.png" alt="Right button">
+		<div class='info-demo'>
+			<div id='info-container-demo' class='connection-container-demo'>
+				<img class="arrow" id="left_button-demo" src="/images/left.png" alt="Left button">
+				<h2 id='section_title_pres-demo'></h2>
+				<img class="arrow" id="right_button-demo" src="/images/right.png" alt="Right button">
 			</div>
+			<h3 id='section_title-demo'></h3>
+			<p id='section_intro-demo'></p>
+		</div>
+		<div class='info'>
+			
 			<h3 id='section_title'></h3>
 			<p id='section_intro'></p>
 		</div>
@@ -42,14 +44,15 @@
 		    import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/GLTFLoader.js';
 		    import { FontLoader } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/FontLoader.js';
 		    import { TextGeometry } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/geometries/TextGeometry.js';
+		    import { Lensflare, LensflareElement } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/objects/Lensflare.js';
 		    
 		    const start_color = [255, 5, 5];
 		    const end_color = [0, 50, 255];
 		    
-		    const pres_titles = ["The Second Brain", "Områden", "Mål och visioner", "Handlingsplaner", "Förutsättningar", "Forskning och fakta", "Historik", "Aktuellt", "Individnivå", "Gruppnivå", "Organisationsnivå", "Kopplingar", "Inaktiva områden", "Sätt igång"];
-		    const pres_texts = ["The Second Brain är ett strukturerat stöd för att arbeta effektivt mot ett uppsatt mål. En digital lösning som hanterar gemensamma och individuella förutsättningar, arbetssätt, strategier, mål och visioner.<br><br>Varje del av kuben representerar ett område som är viktigt att ta hänsyn till och arbeta med. The Second Brain: <ol><li>Skapar förståelse för projektets alla delar.</li><li>Säkerställer att varje apsekt uppmärksammas.</li><li>Synliggör hur olika områden samverkar med varandra.</li></ol>",
-		    					"Inom varje område finns det olika uppgifter som ska genomföras. The Second Brain erbjuder möjlighet att arbeta strukturerat inom varje område. Det kan vara att: <ol><li>Sätta upp kort- eller långsiktiga mål.</li><li>Samla bakgrundsinformation.</li><li>Göra någon typ av analys.</li><li>Skriva en handlingsplan på kort eller lång sikt.</li><li>Utvärdera ett tidigare stadie i projektet.</li></ol>Klicka på ett område för mer information om vilken typ av arbete som ska utföras där. Närmast följer en mer utförlig beskrivning av kubens olika nivåer.",
-		    					"På den här nivån behandlas projektets mål och visioner, exempelvis: <ul><li>Affärsidé</li><li>Verksamhetsidé</li><li>Affärsmodell</li><li>Värderingar</li><li>Framtidsvision</li><li>Kortsiktiga mål</li><li>Övergripande mål</li></ul>",
+		    const pres_titles = ["<b style='font-size:24px'>QBrain</b><br><b style='font-size:12px'>Mångdubblar hjärnans kapacitet</b>", "Kubens delar", "Mission", "Handlingsplaner", "Förutsättningar", "Forskning och fakta", "Historik", "Aktuellt", "Individnivå", "Gruppnivå", "Organisationsnivå", "Kopplingar", "Inaktiva områden", "Sätt igång"];
+		    const pres_texts = ["QBrain är en AI-baserad lösning för planering, genomförande, utveckling och uppföljning av olika typer av uppdrag. Det kan vara alltifrån ett företags hela verksamhet till olika typer av förändringsarbeten eller mindre projekt inom specifika områden. Systemet utgår ifrån hur vår hjärna fungerar och kompletterar den för att vi skall kunna förverkliga det som är riktigt viktigt.<br><br>QBrain bygger i grunden på de tre stegen som varje uppdrag består av:<br><b style='font-size:20px'>Mission</b> = Hur ser uppdraget ut och vad skall uppnås?<br><b style='font-size:20px'>Aktiviteter</b> = Vad behöver göras för att lyckas med uppdraget?<br><b style='font-size:20px'>Förutsättningar</b> = Vad krävs för att genomföra de aktiviteter som behövs?",
+		    					"QBrain består av tre dimensioner varav Planer är den grundläggande som allting utgår ifrån. Varje steg i Planer (Mission – Aktiviteter - Förutsättningar) är kopplade dels till Processer (Fakta - Historik - Aktuella planer) och dels till Personer (Organisation – Grupper - Individer).<br><br>I varje del av kuben finns olika uppgifter som skall genomföras. Det kan vara för en hel organisation, en grupp eller en individ och bestå av att:<ul><li>Ta fram visioner och mål för uppdraget.</li><li>Ta fram strategier och handlingsplaner.</li><li>Analysera förutsättning för att lyckas.</li><li>Utvärdera tidigare uppdrag.</li><li>Använda forskning för att effektivisera uppdraget.</li></ul>Klicka på en del av kuben för mer information om vad som skall göras där.",
+		    					"Här arbetar man med en beskrivning av uppdraget och vad som skall uppnås för en organisation, grupp eller individ. Utifrån fakta och forskning och tidigare genomförda liknande uppdrag tas ett nytt uppdrag fram.<br><br>Det kan exempelvis handla om att definiera:<ul><li>Affärsidé</li><li>Verksamhetsidé</li><li>Projektidé</li><li>Visioner</li><li>Övergripande mål</li></ul>",
 		    					"Här upprättas konkreta handlingsplaner för vad som ska göras för att uppnå målen. Det är viktigt att handlingsplanerna är realistiska med tanke på förutsättningarna samt att de är baserade på fakta, analyser av liknande företeelser och lärdomar av tidigare stadier.<br><br>Handlingsplanerna kan vara konkreta planer för vad som ska göras den närmaste tiden eller mer övergripande strategier och åtgärdsplaner.",
 		    					"Här analyseras vilka förutsättningar som krävs för att målen ska uppnås och utvärderas vilka förutsättningar som finns för tillfället. Det kan handla om förutsättningar gällande:<ul><li>Marknaden</li><li>Konkurrenter</li><li>Kompetens</li><li>Tidsaspekter</li><li>Lokaler</li><li>Ekonomi</li><li>Kultur</li><li>Personliga egenskaper</li></ul>",
 		    					"Här samlas fakta och forskning som beslutsunderlag för utformningen av förutsättningar, mål och handlingsplaner. Det kan vara:<ul><li>Internutbildningar</li><li>Marknadsanalyser</li><li>Expertråd</li><li>Organisationsmodeller</li><li>Workshops</li><li>Forskningsrapporter</li><li>Medarbetarundersökningar</li></ul>",
@@ -66,6 +69,11 @@
 		    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 		    const renderer = new THREE.WebGLRenderer( { antialias: true } );
 		    const geometry = new THREE.BoxGeometry();
+		    const textureLoader = new THREE.TextureLoader();
+			const textureFlare0 = textureLoader.load( 'images/lensflare0.png' );
+			const textureFlare3 = textureLoader.load( 'images/lensflare3.png' );
+			
+			localStorage.setItem("time", JSON.stringify(Date.now() * 0.0001));
 		    
 		    let cubes = JSON.parse(localStorage.getItem("cubes"));
 		    let current_cube;
@@ -136,7 +144,9 @@
             	objects.push(cube);
 		    }
 		    
-		    camera.position.set(4.2,3.2,4.2);
+		    if(camera.position.x == 0) {
+		    	camera.position.set(4.2,3.2,4.2);
+		    }
 		    camera.lookAt(new THREE.Vector3(0,0,0)); 
 		    let raycaster = new THREE.Raycaster();
 		    let mouse = new THREE.Vector2();
@@ -144,7 +154,6 @@
 		    
 		    renderer.setSize( window.innerWidth, window.innerHeight );
 		    document.body.appendChild( renderer.domElement );
-		    
 
 			window.addEventListener( 'resize', onWindowResize );
 		    
@@ -153,7 +162,7 @@
 		    document.getElementById("info_button").addEventListener("click", openInfo);
 		    document.getElementById("close_button").addEventListener("click", closeInfo);
 		    
-		    document.getElementById("left_button").addEventListener('click', (() => {
+		    document.getElementById("left_button-demo").addEventListener('click', (() => {
 		    	let idx = parseInt(localStorage.getItem("pres_idx"));
 				if(idx == 0) {
 					idx = pres_texts.length - 1;
@@ -164,7 +173,7 @@
 				location.reload();
 			}));
 			
-			document.getElementById("right_button").addEventListener('click', (() => {
+			document.getElementById("right_button-demo").addEventListener('click', (() => {
 				let idx = parseInt(localStorage.getItem("pres_idx"));
 				idx = (idx + 1) % pres_texts.length;
 				localStorage.setItem("pres_idx", idx + "");
@@ -177,7 +186,22 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 			}
 
-			
+			function addLight( h, s, l, x, y, z ) {
+
+				const light = new THREE.PointLight( 0xffffff, 1.5, 2000 );
+				light.color.setHSL( h, s, l );
+				light.position.set( x, y, z );
+				scene.add( light );
+
+				const lensflare = new Lensflare();
+				lensflare.addElement( new LensflareElement( textureFlare0, 700, 0, light.color ) );
+				lensflare.addElement( new LensflareElement( textureFlare3, 60, 0.6 ) );
+				lensflare.addElement( new LensflareElement( textureFlare3, 70, 0.7 ) );
+				lensflare.addElement( new LensflareElement( textureFlare3, 120, 0.9 ) );
+				lensflare.addElement( new LensflareElement( textureFlare3, 70, 1 ) );
+				light.add( lensflare );
+
+			}
 			
 			function onDocumentDoubleClicked(event) {
 				if (parseInt(localStorage.getItem("pres_idx")) < 0) {
@@ -231,6 +255,12 @@
 				if (parseInt(localStorage.getItem("pres_idx")) < 0) {
 					localStorage.setItem("pres_idx", "0");
 					let pres_cube = new_std_cube("");
+					for (let i = 0; i < pres_cube.sections.length; i++) {
+						let connections = getSectionConnections(pres_cube, pres_cube.sections[i].id);
+						for (let j = 0; j < connections.length; j++) {
+							connections[j].strength = 100;
+						}
+					}
 					localStorage.setItem("pres_cube", JSON.stringify(pres_cube));
 					location.reload();
 				}
@@ -244,19 +274,277 @@
 			
 			function showPresentation(idx, cube) {
 				let title = "Guide (";
-				document.getElementById("left_button").style.display = "block";
-				document.getElementById("right_button").style.display = "block";
-				document.getElementById("axis_info").style.display = "block";
-				document.getElementById("info-container").style.alignItems = "center";
-				document.getElementById("info-container").style.justifyContent = "center";
-				document.getElementById("section_title_pres").style.textAlign = "center";
-				document.getElementById("section_title_pres").style.textAlign = "center";
-				document.getElementById("section_title_pres").style.width = "200px";
-				document.getElementById("section_title_pres").innerHTML = pres_titles[idx];
-				document.getElementById("section_intro").innerHTML = pres_texts[idx];
+				document.getElementById("left_button-demo").style.display = "block";
+				document.getElementById("right_button-demo").style.display = "block";
+				document.getElementById("info-container-demo").style.alignItems = "center";
+				document.getElementById("info-container-demo").style.justifyContent = "center";
+				document.getElementById("section_title_pres-demo").style.textAlign = "center";
+				document.getElementById("section_title_pres-demo").style.textAlign = "center";
+				document.getElementById("section_title_pres-demo").style.width = "200px";
+				document.getElementById("section_title_pres-demo").innerHTML = pres_titles[idx];
+				document.getElementById("section_intro-demo").innerHTML = pres_texts[idx];
+				
+				var loader = new FontLoader();
+				var txt_mat = new THREE.MeshPhongMaterial({color:0xffffff});
+				
 				title += (idx + 1) + "";
 				switch (idx) {
+					case 0:
+						camera.position.set(5.5,2.5,5.5);
+						addLight( 0.59, 0.8, 0.5,-5, 7, -20 );
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+						let big_text_settings = {
+							font: font,
+							size: 0.28,
+							height: 0.03,
+							curveSegments: 12,
+							bevelEnabled: false,
+							bevelThickness: 0.1,
+							bevelSize: 0.1,
+							bevelSegments: 0.1
+						};
+						let small_text_settings = {
+							font: font,
+							size: 0.2,
+							height: 0.03,
+							curveSegments: 12,
+							bevelEnabled: false,
+							bevelThickness: 0.1,
+							bevelSize: 0.1,
+							bevelSegments: 0.1
+						};
+						var plans = new THREE.Mesh(new TextGeometry( 'Planer', big_text_settings ), txt_mat);
+						plans.position.z = 0.93;
+						plans.position.y = 1;
+						plans.position.x = 0.06;
+						plans.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(plans);
+						
+						var mission = new THREE.Mesh(new TextGeometry( 'Mission', small_text_settings ), txt_mat);
+						mission.position.z = 0.85;
+						mission.position.y = -0.05;
+						mission.position.x = 0.14;
+						mission.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(mission);
+						
+						var activities = new THREE.Mesh(new TextGeometry( 'Aktiviteter', small_text_settings ), txt_mat);
+						activities.position.z = 1;
+						activities.position.y = -1.25;
+						activities.position.x = 0;
+						activities.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(activities);
+						
+						var conditions = new THREE.Mesh(new TextGeometry( 'Förutsättningar', small_text_settings ), txt_mat);
+						conditions.position.z = 1.25;
+						conditions.position.y = -2.45;
+						conditions.position.x = -0.25;
+						conditions.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(conditions);
+						} );
+					break;
+					case 1:
+						camera.position.set(6.5,2.5,6.5);
+						addLight( 0.59, 0.8, 0.5,-5, 7, -20 );
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+						let big_text_settings = {
+							font: font,
+							size: 0.28,
+							height: 0.03,
+							curveSegments: 12,
+							bevelEnabled: false,
+							bevelThickness: 0.1,
+							bevelSize: 0.1,
+							bevelSegments: 0.1
+						};
+						let small_text_settings = {
+							font: font,
+							size: 0.2,
+							height: 0.03,
+							curveSegments: 12,
+							bevelEnabled: false,
+							bevelThickness: 0.1,
+							bevelSize: 0.1,
+							bevelSegments: 0.1
+						};
+						var plans = new THREE.Mesh(new TextGeometry( 'Planer', big_text_settings ), txt_mat);
+						plans.position.z = 0.93;
+						plans.position.y = 1;
+						plans.position.x = 0.06;
+						plans.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(plans);
+						
+						var mission = new THREE.Mesh(new TextGeometry( 'Mission', small_text_settings ), txt_mat);
+						mission.position.z = 0.85;
+						mission.position.y = -0.05;
+						mission.position.x = 0.14;
+						mission.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(mission);
+						
+						var activities = new THREE.Mesh(new TextGeometry( 'Aktiviteter', small_text_settings ), txt_mat);
+						activities.position.z = 1;
+						activities.position.y = -1.25;
+						activities.position.x = 0;
+						activities.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(activities);
+						
+						var conditions = new THREE.Mesh(new TextGeometry( 'Förutsättningar', small_text_settings ), txt_mat);
+						conditions.position.z = 1.25;
+						conditions.position.y = -2.45;
+						conditions.position.x = -0.25;
+						conditions.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(conditions);
+						
+						var processes = new THREE.Mesh(new TextGeometry( 'Processer', big_text_settings ), txt_mat);
+						processes.position.z = 3.23;
+						processes.position.y = -1.6;
+						processes.position.x = -2.26;
+						processes.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(processes);
+						
+						var facts = new THREE.Mesh(new TextGeometry( 'Fakta', small_text_settings ), txt_mat);
+						facts.position.z = 2.63;
+						facts.position.y = -2.13;
+						facts.position.x = -1.66;
+						facts.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(facts);
+						
+						var history = new THREE.Mesh(new TextGeometry( 'Historik', small_text_settings ), txt_mat);
+						history.position.z = 2.43;
+						history.position.y = -2.55;
+						history.position.x = -1.46;
+						history.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(history);
+						
+						var current_plans = new THREE.Mesh(new TextGeometry( 'Aktuella planer', small_text_settings ), txt_mat);
+						current_plans.position.z = 2.32;
+						current_plans.position.y = -3;
+						current_plans.position.x = -1.35;
+						current_plans.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(current_plans);
+						
+						var people = new THREE.Mesh(new TextGeometry( 'Personer', big_text_settings ), txt_mat);
+						people.position.z = -1.06;
+						people.position.y = -1.6;
+						people.position.x = 2.03;
+						people.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(people);
+						
+						var individuals = new THREE.Mesh(new TextGeometry( 'Individer', small_text_settings ), txt_mat);
+						individuals.position.z = -0.96;
+						individuals.position.y = -2.13;
+						individuals.position.x = 1.93;
+						individuals.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(individuals);
+						
+						var groups = new THREE.Mesh(new TextGeometry( 'Grupper', small_text_settings ), txt_mat);
+						groups.position.z = -0.66;
+						groups.position.y = -2.55;
+						groups.position.x = 1.63;
+						groups.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(groups);
+						
+						var organisation = new THREE.Mesh(new TextGeometry( 'Organisation', small_text_settings ), txt_mat);
+						organisation.position.z = -0.12;
+						organisation.position.y = -3;
+						organisation.position.x = 1.09;
+						organisation.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(organisation);
+						} );
+					break;
 					case 2:
+						camera.position.set(6.5,2.5,6.5);
+						addLight( 0.59, 0.8, 0.5,-5, 7, -20 );
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+						let big_text_settings = {
+							font: font,
+							size: 0.28,
+							height: 0.03,
+							curveSegments: 12,
+							bevelEnabled: false,
+							bevelThickness: 0.1,
+							bevelSize: 0.1,
+							bevelSegments: 0.1
+						};
+						let small_text_settings = {
+							font: font,
+							size: 0.2,
+							height: 0.03,
+							curveSegments: 12,
+							bevelEnabled: false,
+							bevelThickness: 0.1,
+							bevelSize: 0.1,
+							bevelSegments: 0.1
+						};
+						var plans = new THREE.Mesh(new TextGeometry( 'Planer', big_text_settings ), txt_mat);
+						plans.position.z = 0.93;
+						plans.position.y = 1;
+						plans.position.x = 0.06;
+						plans.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(plans);
+						
+						var mission = new THREE.Mesh(new TextGeometry( 'Mission', small_text_settings ), txt_mat);
+						mission.position.z = 0.85;
+						mission.position.y = -0.05;
+						mission.position.x = 0.14;
+						mission.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(mission);
+						
+						var processes = new THREE.Mesh(new TextGeometry( 'Processer', big_text_settings ), txt_mat);
+						processes.position.z = 3.23;
+						processes.position.y = -1.6;
+						processes.position.x = -2.26;
+						processes.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(processes);
+						
+						var facts = new THREE.Mesh(new TextGeometry( 'Fakta', small_text_settings ), txt_mat);
+						facts.position.z = 2.63;
+						facts.position.y = -2.13;
+						facts.position.x = -1.66;
+						facts.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(facts);
+						
+						var history = new THREE.Mesh(new TextGeometry( 'Historik', small_text_settings ), txt_mat);
+						history.position.z = 2.43;
+						history.position.y = -2.55;
+						history.position.x = -1.46;
+						history.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(history);
+						
+						var current_plans = new THREE.Mesh(new TextGeometry( 'Aktuella planer', small_text_settings ), txt_mat);
+						current_plans.position.z = 2.32;
+						current_plans.position.y = -3;
+						current_plans.position.x = -1.35;
+						current_plans.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(current_plans);
+						
+						var people = new THREE.Mesh(new TextGeometry( 'Personer', big_text_settings ), txt_mat);
+						people.position.z = -1.06;
+						people.position.y = -1.6;
+						people.position.x = 2.03;
+						people.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(people);
+						
+						var individuals = new THREE.Mesh(new TextGeometry( 'Individer', small_text_settings ), txt_mat);
+						individuals.position.z = -0.96;
+						individuals.position.y = -2.13;
+						individuals.position.x = 1.93;
+						individuals.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(individuals);
+						
+						var groups = new THREE.Mesh(new TextGeometry( 'Grupper', small_text_settings ), txt_mat);
+						groups.position.z = -0.66;
+						groups.position.y = -2.55;
+						groups.position.x = 1.63;
+						groups.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(groups);
+						
+						var organisation = new THREE.Mesh(new TextGeometry( 'Organisation', small_text_settings ), txt_mat);
+						organisation.position.z = -0.12;
+						organisation.position.y = -3;
+						organisation.position.x = 1.09;
+						organisation.rotation.set(0, Math.PI/4, 0);
+						objects[26].add(organisation);
+						} );
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(Math.floor(i / 3) % 3 == 2) {
 								cube.sections[i].active = 1;
@@ -349,11 +637,10 @@
 							}
 						}
 						document.getElementById("color-scale-container").style.display = "block";
-						document.getElementById("axis_info").style.display = 'none';
 					break;
 					case 12:
 						for (let i = 0; i < cube.sections.length; i++) {
-						let connections = getSectionConnections(cube, cube.sections[i].id)
+							let connections = getSectionConnections(cube, cube.sections[i].id);
 							for (let j = 0; j < connections.length; j++) {
 								if(Math.random() < 0.5) {
 									connections[j].strength = 0;
@@ -446,6 +733,22 @@
 				colorString = "#" + rr + gg + bb;
 				return {color: colorString};
 			}
+			
+			function render() {
+				const time = parseInt(localStorage.getItem("time"));
+				const timer = Date.now() * 0.0001;
+				scene.traverse( function ( object ) {
+					if ( object.isMesh === true ) {
+						object.rotation.x = timer * 5;
+						object.rotation.y = timer * 2.5;
+						object.position.x = object.position.x + (timer - time)*0.01;
+					}
+				} );
+
+				renderer.render( scene, camera );
+
+			}
+
 
 		    function animate() {
 		        requestAnimationFrame( animate );
