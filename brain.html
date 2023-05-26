@@ -49,21 +49,32 @@
 		    const start_color = [255, 5, 5];
 		    const end_color = [0, 50, 255];
 		    
-		    const pres_titles = ["<b style='font-size:24px'>QBrain</b><br><b style='font-size:12px'>Mångdubblar hjärnans kapacitet</b>", "Kubens delar", "Mission", "Handlingsplaner", "Förutsättningar", "Forskning och fakta", "Historik", "Aktuellt", "Individnivå", "Gruppnivå", "Organisationsnivå", "Kopplingar", "Inaktiva områden", "Sätt igång"];
+		    const pres_titles = ["<b style='font-size:24px'>QBrain</b><br><b style='font-size:12px'>Mångdubblar hjärnans kapacitet</b>", "Kubens delar", "Mission", "Aktiviteter", "Förutsättningar", "Fakta", "Historik", "Aktuella planer", "Organisation", "Grupper", "Individer", "AI-stöd", "Sammanfattning"];
 		    const pres_texts = ["QBrain är en AI-baserad lösning för planering, genomförande, utveckling och uppföljning av olika typer av uppdrag. Det kan vara alltifrån ett företags hela verksamhet till olika typer av förändringsarbeten eller mindre projekt inom specifika områden. Systemet utgår ifrån hur vår hjärna fungerar och kompletterar den för att vi skall kunna förverkliga det som är riktigt viktigt.<br><br>QBrain bygger i grunden på de tre stegen som varje uppdrag består av:<br><b style='font-size:20px'>Mission</b> = Hur ser uppdraget ut och vad skall uppnås?<br><b style='font-size:20px'>Aktiviteter</b> = Vad behöver göras för att lyckas med uppdraget?<br><b style='font-size:20px'>Förutsättningar</b> = Vad krävs för att genomföra de aktiviteter som behövs?",
+		    
 		    					"QBrain består av tre dimensioner varav Planer är den grundläggande som allting utgår ifrån. Varje steg i Planer (Mission – Aktiviteter - Förutsättningar) är kopplade dels till Processer (Fakta - Historik - Aktuella planer) och dels till Personer (Organisation – Grupper - Individer).<br><br>I varje del av kuben finns olika uppgifter som skall genomföras. Det kan vara för en hel organisation, en grupp eller en individ och bestå av att:<ul><li>Ta fram visioner och mål för uppdraget.</li><li>Ta fram strategier och handlingsplaner.</li><li>Analysera förutsättning för att lyckas.</li><li>Utvärdera tidigare uppdrag.</li><li>Använda forskning för att effektivisera uppdraget.</li></ul>Klicka på en del av kuben för mer information om vad som skall göras där.",
-		    					"Här arbetar man med en beskrivning av uppdraget och vad som skall uppnås för en organisation, grupp eller individ. Utifrån fakta och forskning och tidigare genomförda liknande uppdrag tas ett nytt uppdrag fram.<br><br>Det kan exempelvis handla om att definiera:<ul><li>Affärsidé</li><li>Verksamhetsidé</li><li>Projektidé</li><li>Visioner</li><li>Övergripande mål</li></ul>",
-		    					"Här upprättas konkreta handlingsplaner för vad som ska göras för att uppnå målen. Det är viktigt att handlingsplanerna är realistiska med tanke på förutsättningarna samt att de är baserade på fakta, analyser av liknande företeelser och lärdomar av tidigare stadier.<br><br>Handlingsplanerna kan vara konkreta planer för vad som ska göras den närmaste tiden eller mer övergripande strategier och åtgärdsplaner.",
-		    					"Här analyseras vilka förutsättningar som krävs för att målen ska uppnås och utvärderas vilka förutsättningar som finns för tillfället. Det kan handla om förutsättningar gällande:<ul><li>Marknaden</li><li>Konkurrenter</li><li>Kompetens</li><li>Tidsaspekter</li><li>Lokaler</li><li>Ekonomi</li><li>Kultur</li><li>Personliga egenskaper</li></ul>",
-		    					"Här samlas fakta och forskning som beslutsunderlag för utformningen av förutsättningar, mål och handlingsplaner. Det kan vara:<ul><li>Internutbildningar</li><li>Marknadsanalyser</li><li>Expertråd</li><li>Organisationsmodeller</li><li>Workshops</li><li>Forskningsrapporter</li><li>Medarbetarundersökningar</li></ul>",
-		    					"Ett projekt bygger som regel på en iterativ process där tidiga versioner ersätts av mer utvecklade, komplexa eller förfinade versioner. På den här nivån finns arkiverade versioner av projektet som har eller ska utvärderas och analyseras, exempelvis genom användartestning, kundundersökningar eller SWOT-analys.<ul><li>Vad har inte fungerat och varför?</li><li>Vilka styrkor kan bibehållas?</li><li>Vilka svagheter behöver förbättras?</li><li>Vilka funktioner eller kompetenser saknas?</li>",
-		    					"Här sker det största arbetet. Aktuella förutsättningar, handlingsplaner och mål uppdateras och revideras i takt med projektets framsteg eller motgångar. Om förutsättningarna förändras behöver ofta mål och handlingsplaner anpassas efter de nya förutsättningarna. Samtidigt ska arbetet på den här nivån anpassas efter forskning, fakta och analyser av tidigare stadier i projektet.<br><br>The Second Brain väver samman dessa avvägningar. Alla perspektiv tas i beaktande och eventuella brister synliggörs.<br><br>När en version av projektet inte längre är aktuell kan den utvärderas och analyseras för att sedan arkiveras till Historiken.",
-		    					"På den här nivån uppmärksammas varje individ. Vilka kompetenser finns och vilka saknas? Hur ska varje enskild individ arbeta för att uppnå både personliga och mer övergripande målsättningar?",
-		    					"Här analyseras projektet på gruppnivå. Hur arbetas det på gruppnivå och vilken funktion fyller gruppen? Vilka grupper samverkar med varandra och hur? Gruppens arbete måste var anpassat efter individuella förutsättningar och samtidigt sträva efter att uppnå övergripande målsättningar.<br><br>En grupp kan till exempel vara:<ul><li>Dotterbolag</li><li>Avdelning</li><li>Team</li><li>Årskull</li><li>Ledningsgrupp</li></ul>",
-		    					"På den här nivån definieras de övegripande målen och visionerna. Här sker också det övergripande strategiska arbetet.<br><br>Mål och strategier ska genomsyra arbetet på lägre nivåer samtidigt som de behöver anpassas efter aktuella förusättningar för att vara realistisika och genomförbara.",
+		    					
+		    					"Här arbetar man med vilka aktiviteter som krävs för att lyckas genomföra ett aktuellt uppdrag för en organisation, grupp eller individ. Utifrån fakta och forskning och tidigare genomförda liknande uppdrag tas nya aktiviteter fram.<br><br>Det kan exempelvis vara:<ul><li>Affärsidé</li><li>Verksamhetsidé</li><li>Projektidé</li><li>Visioner</li><li>Övergripande mål</li></ul>",
+		    					
+		    					"Här arbetar man med en beskrivning av uppdraget och vad som skall uppnås för en organisation, grupp eller individ. Utifrån fakta och forskning och tidigare genomförda liknande uppdrag tas ett nytt uppdrag fram.<br><br>Det kan exempelvis handla om att definiera:<ul><li>Övergripande strategier för hela organisationen</li><li>Förändringsprocesser som skall implementeras</li><li>Varumärkesstrategier</li><li>Taktiska planer för olika områden</li><li>Handlingsplaner på kortare sikt</li></ul>",
+		    					
+		    					"Här analyseras vilka förutsättningar som krävs för att genomföra de aktiviteter som tagits fram för att genomföra det aktuella uppdraget. Detta görs utifrån fakta och forskning samt tidigare genomförda liknande uppdrag.<br><br>Det handlar om externa förutsättningar som kan vara:<ul><li>Praktiska (Konjunktur, politik, konkurrens, etc)</li><li>Psykologiska (Kultur, trender, etc)</li></ul>Samt interna förutsättningar som:<ul><li>Praktiska (Ekonomi, lokaler, datakapacitet, etc)</li><li>Psykologiska (Kompetens, motivation, kultur, personligheter, beteendemönster, etc)</li></ul>",
+		    					
+		    					"Här samlas forskning, fakta och tips kontinuerligt för organisationers, gruppers och individers arbete med planer: Mission, Aktiviteter och Förutsättningar. Allt ifrån konsekvenser på kortare och längre sikt av olika faktorer till konkreta råd för att lyckas framöver.<br><br>Det kan vara:<ul><li>Forskningrapporter</li><li>Expertråd</li><li>Webbutbildningar</li><li>Workshops</li><li>Förslag på planer</li><li>Digital coaching</li></ul>",
+		    					
+		    					"Här finns tidigare planer lagrade för organisationers, gruppers och individers arbete med Mission, Aktiviteter och Förutsättningar. Allt är utvärderat och omvandlat till konkreta riktlinjer för framtida liknande arbeten med planer.<br><br>Det kan handla om:<ul><li>Vad har fungerat tidigare?</li><li>Hur använda det framöver?</li><li>Vilka problem har uppstått?</li><li>Hur undvika dessa i framtiden?</li></ul>",
+		    					
+		    					"Här sker arbetet för hela organisationer, grupper och individer med att ta fram och följa upp Aktuella planer med Mission, Aktiviteter och Förutsättningar. Allt arbete här stöds av AI utifrån forskning och fakta samt historik från tidigare liknande arbeten. Beslutade planer lagras sen under historik där resultaten också sparas och slutsatser dras för framtida behov.<br><br>Till exempel:<ul><li>Vilka Aktiviteter är realistiska att genomföra med olika Förutsättningar?</li><li>Vilka Mål är realistiska att nå med olika Aktiviteter?</li><li>Vad leder olika typer av scenarion till för konsekvenser?</li></ul>QBrain väver samman alla dessa avvägningar. Alla perspektiv beaktas och eventuella brister tydliggörs så att beslut kan tas för så stor framgång som möjligt.",
+		    					
+		    					"Här tas planer fram för organisationer (Mission, Aktiviteter och Förutsättningar). Arbetet görs med hjälp av AI utifrån forskning och fakta samt historik från organisationens tidigare liknande arbeten.<br><br>Till exempel:<ul><li>Vilka Aktiviteter är realistiska för organisationen att genomföra med olika Förutsättningar?</li><li>Vilka Mål är realistiska för organisationen att nå med olika Aktiviteter?</li><li>Vilka Konsekvenser leder olika typer av scenarion till för organisationen?</li></ul>",
+		    					
+		    					"Här arbetar man med planer för grupper (Mission, Aktiviteter och Förutsättningar). Arbetet görs med hjälp av AI utifrån forskning och fakta samt historik från gruppens liknande arbeten.<br><br>Till exempel:<ul><li>Vilka Aktiviteter är realistiska för gruppen att genomföra med olika Förutsättningar?</li><li>Vilka Mål är realistiska för gruppen att nå med olika Aktiviteter?</li><li>Vilka Konsekvenser leder olika typer av scenarion till för gruppen?</li></ul>",
+		    					
+		    					"Här tas planer fram för individer (Mission, Aktiviteter och Förutsättningar). Arbetet görs med hjälp av AI utifrån forskning och fakta samt historik från individens liknande arbeten.<br><br>Till exempel:<ul><li>Vilka Aktiviteter är realistiska för individen att genomföra med olika Förutsättningar?</li><li>Vilka Mål är realistiska för individen att nå med olika Aktiviteter?</li><li>Vilka Konsekvenser leder olika typer av scenarion till för individen?</li></ul>",
+		    					
 		    					"Projektets områden samverkar med varandra på olika sätt och över flera nivåer. The Second Brain hanterar områden som är nära kopplade till varandra och ger möjlighet att bedöma hur väl kopplade områden fungerar tillsammans.<br><br>Områden som samverkar väl markeras med blått och områden som inte fungerar tillsammans med andra markeras med rött.<br><br>Röd färg indikerar att området kräver mer arbete eller att kopplade områden behöver förändras.",
-		    					"Områden som inte är relevanta för projektet kan inaktiveras. Ett helt nytt projekt har till exempel sällan någon Historik och i ett enmansprojekt är troligtvis varken Grupp- eller Organisationsnivån relevant.",
-		    					'The Second Brain Cube är en digital lösning för planering, genomförande, utveckling och uppföljning av alla stadier i ett projekt. Det är ett kraftfullt verktyg som strukturerar komplexa saker på tydliga sätt.<br><br>The Second Brain fungerar i många olika sammanhang eftersom liknande strukturer och mekanismer ligger till grund för att ett mål ska uppnås.<br><br>Ett lämpligt första steg är att definiera projektets mål och visioner på kort och lång sikt. Stäng guiden, dubbelklicka på området "Målsättningar på organisationsnivå" och lägg till en artikel kring projektets mål och visioner.'];
+		    					
+		    					'QBrain är ett AI-baserat stöd för planering, genomförande och uppföljning av alla typer av uppdrag, stora som små för hela organisationer, grupper och individer. Man utgår ifrån uppdragets Mission (Idé. Syfte, Mål och Visioner), tar fram Aktiviteter (Strategier, Taktiska planer, Handlingsplaner) samt Förutsättningar (Externa o Interna – Praktiska o Psykologiska). Allt stäms av mot forskning och fakta samt tidigare erfarenheter av liknande uppdrag.'];
 		    
 		    const scene = new THREE.Scene();
 		    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -72,6 +83,8 @@
 		    const textureLoader = new THREE.TextureLoader();
 			const textureFlare0 = textureLoader.load( 'images/lensflare0.png' );
 			const textureFlare3 = textureLoader.load( 'images/lensflare3.png' );
+			const pres_index = parseInt(localStorage.getItem("pres_idx"));
+			
 			
 			localStorage.setItem("time", JSON.stringify(Date.now() * 0.0001));
 		    
@@ -83,9 +96,9 @@
 				}
 			}
 			document.getElementById("title").innerHTML = current_cube.title;
-			if (parseInt(localStorage.getItem("pres_idx")) >= 0) {
+			if (pres_index >= 0) {
 				current_cube = JSON.parse(localStorage.getItem("pres_cube"));
-				showPresentation(parseInt(localStorage.getItem("pres_idx")), current_cube);
+				showPresentation(pres_index, current_cube);
 				document.getElementById("close_button").style.display = "block";
 				document.getElementById("info_button").style.display = "none";
 			} else {
@@ -138,7 +151,7 @@
                 	title: secs[pos].title,
                 	intro: secs[pos].intro,
                 	active: secs[pos].active,
-                	strength: getStrength(current_cube, secs[pos])
+                	strength: getStrength(current_cube, secs[pos], pres_index)
             	};
             	scene.add( cube );
             	objects.push(cube);
@@ -163,7 +176,7 @@
 		    document.getElementById("close_button").addEventListener("click", closeInfo);
 		    
 		    document.getElementById("left_button-demo").addEventListener('click', (() => {
-		    	let idx = parseInt(localStorage.getItem("pres_idx"));
+		    	let idx = pres_index;
 				if(idx == 0) {
 					idx = pres_texts.length - 1;
 				} else {
@@ -174,7 +187,7 @@
 			}));
 			
 			document.getElementById("right_button-demo").addEventListener('click', (() => {
-				let idx = parseInt(localStorage.getItem("pres_idx"));
+				let idx = pres_index;
 				idx = (idx + 1) % pres_texts.length;
 				localStorage.setItem("pres_idx", idx + "");
 				location.reload();
@@ -204,7 +217,7 @@
 			}
 			
 			function onDocumentDoubleClicked(event) {
-				if (parseInt(localStorage.getItem("pres_idx")) < 0) {
+				if (pres_index < 0) {
 					event.preventDefault();
 					mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
 					mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
@@ -240,7 +253,7 @@
         			document.getElementById("section_title").innerHTML = intersects[0].object.userData.title;
         			document.getElementById("section_intro").innerHTML = intersects[0].object.userData.intro;
         			intersects[0].object.material.opacity = 1; 
-        			if (parseInt(localStorage.getItem("pres_idx")) < 0) {
+        			if (pres_index < 0) {
 		    			if(intersects[0].object.userData.active) {
 		    				intersects[0].object.material.emissive = intersects[0].object.material.color; 
 		    				document.getElementById("section_title").innerHTML += " (" + intersects[0].object.userData.strength + "&nbsp%)";
@@ -254,7 +267,7 @@
 
 			function openInfo(event) {
     			event.preventDefault();
-				if (parseInt(localStorage.getItem("pres_idx")) < 0) {
+				if (pres_index < 0) {
 					localStorage.setItem("pres_idx", "0");
 					let pres_cube = new_std_cube("");
 					for (let i = 0; i < pres_cube.sections.length; i++) {
@@ -274,6 +287,44 @@
 				location.reload();
 			}
 			
+			function getBigText(text, x, y, z, txt_mat, font) {
+				let big_text_settings = {
+					font: font,
+					size: 0.28,
+					height: 0.03,
+					curveSegments: 12,
+					bevelEnabled: false,
+					bevelThickness: 0.1,
+					bevelSize: 0.1,
+					bevelSegments: 0.1
+				};
+				var ret = new THREE.Mesh(new TextGeometry( text, big_text_settings ), txt_mat);
+				ret.position.z = z;
+				ret.position.y = y;
+				ret.position.x = x;
+				ret.rotation.set(0, Math.PI/4, 0);
+				return ret;
+			}
+			
+			function getSmallText(text, x, y, z, txt_mat, font) {
+				let small_text_settings = {
+					font: font,
+					size: 0.2,
+					height: 0.03,
+					curveSegments: 12,
+					bevelEnabled: false,
+					bevelThickness: 0.1,
+					bevelSize: 0.1,
+					bevelSegments: 0.1
+				};
+				var ret = new THREE.Mesh(new TextGeometry( text, small_text_settings ), txt_mat);
+				ret.position.z = z;
+				ret.position.y = y;
+				ret.position.x = x;
+				ret.rotation.set(0, Math.PI/4, 0);
+				return ret;
+			}
+			
 			function showPresentation(idx, cube) {
 				let title = "Guide (";
 				document.getElementById("left_button-demo").style.display = "block";
@@ -288,265 +339,100 @@
 				
 				var loader = new FontLoader();
 				var txt_mat = new THREE.MeshPhongMaterial({color:0xffffff});
+				addLight( 0.59, 0.8, 0.5,-5, 7, -20 );
+				camera.position.set(6.5,2.5,6.5);
 				
 				title += (idx + 1) + "";
 				switch (idx) {
 					case 0:
 						camera.position.set(5.5,2.5,5.5);
-						addLight( 0.59, 0.8, 0.5,-5, 7, -20 );
 						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
-						let big_text_settings = {
-							font: font,
-							size: 0.28,
-							height: 0.03,
-							curveSegments: 12,
-							bevelEnabled: false,
-							bevelThickness: 0.1,
-							bevelSize: 0.1,
-							bevelSegments: 0.1
-						};
-						let small_text_settings = {
-							font: font,
-							size: 0.2,
-							height: 0.03,
-							curveSegments: 12,
-							bevelEnabled: false,
-							bevelThickness: 0.1,
-							bevelSize: 0.1,
-							bevelSegments: 0.1
-						};
-						var plans = new THREE.Mesh(new TextGeometry( 'Planer', big_text_settings ), txt_mat);
-						plans.position.z = 0.93;
-						plans.position.y = 1;
-						plans.position.x = 0.06;
-						plans.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(plans);
-						
-						var mission = new THREE.Mesh(new TextGeometry( 'Mission', small_text_settings ), txt_mat);
-						mission.position.z = 0.85;
-						mission.position.y = -0.05;
-						mission.position.x = 0.14;
-						mission.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(mission);
-						
-						var activities = new THREE.Mesh(new TextGeometry( 'Aktiviteter', small_text_settings ), txt_mat);
-						activities.position.z = 1;
-						activities.position.y = -1.25;
-						activities.position.x = 0;
-						activities.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(activities);
-						
-						var conditions = new THREE.Mesh(new TextGeometry( 'Förutsättningar', small_text_settings ), txt_mat);
-						conditions.position.z = 1.25;
-						conditions.position.y = -2.45;
-						conditions.position.x = -0.25;
-						conditions.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(conditions);
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var mission = getSmallText('Mission', 0.14, -0.05, 0.85, txt_mat, font);
+							objects[26].add(mission);
+							
+							var activities = getSmallText('Aktiviteter', 0, -1.25, 1, txt_mat, font);
+							objects[26].add(activities);
+							
+							var conditions = getSmallText('Förutsättningar', -0.25, -2.45, 1.25, txt_mat, font);
+							objects[26].add(conditions);
 						} );
 					break;
 					case 1:
-						camera.position.set(6.5,2.5,6.5);
-						addLight( 0.59, 0.8, 0.5,-5, 7, -20 );
 						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
-						let big_text_settings = {
-							font: font,
-							size: 0.28,
-							height: 0.03,
-							curveSegments: 12,
-							bevelEnabled: false,
-							bevelThickness: 0.1,
-							bevelSize: 0.1,
-							bevelSegments: 0.1
-						};
-						let small_text_settings = {
-							font: font,
-							size: 0.2,
-							height: 0.03,
-							curveSegments: 12,
-							bevelEnabled: false,
-							bevelThickness: 0.1,
-							bevelSize: 0.1,
-							bevelSegments: 0.1
-						};
-						var plans = new THREE.Mesh(new TextGeometry( 'Planer', big_text_settings ), txt_mat);
-						plans.position.z = 0.93;
-						plans.position.y = 1;
-						plans.position.x = 0.06;
-						plans.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(plans);
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var mission = getSmallText('Mission', 0.14, -0.05, 0.85, txt_mat, font);
+							objects[26].add(mission);
+							
+							var activities = getSmallText('Aktiviteter', 0, -1.25, 1, txt_mat, font);
+							objects[26].add(activities);
+							
+							var conditions = getSmallText('Förutsättningar', -0.25, -2.45, 1.25, txt_mat, font);
+							objects[26].add(conditions);
+							
+							var processes = getBigText('Processer', -2.26, -1.6, 3.23, txt_mat, font);
+							objects[26].add(processes);
+							
+							var facts = getSmallText('Fakta', -1.66, -2.13, 2.63, txt_mat, font);
+							objects[26].add(facts);
+							
+							var history = getSmallText('Historik', -1.46, -2.55, 2.43, txt_mat, font);
+							objects[26].add(history);
+							
+							var current_plans = getSmallText('Aktuella planer', -1.35, -3, 2.32, txt_mat, font);
+							objects[26].add(current_plans);
+							
+							var people = getBigText('Personer', 2.03, -1.6, -1.06, txt_mat, font);
+							objects[26].add(people);
+							
+							var individuals = getSmallText('Individer', 1.93, -2.13, -0.96, txt_mat, font);
+							objects[26].add(individuals);
+							
+							var groups = getSmallText('Grupper', 1.63, -2.55, -0.66, txt_mat, font);
+							objects[26].add(groups);
+							
+							var organisation = getSmallText('Organisation', 1.09, -3, -0.12, txt_mat, font);
+							objects[26].add(organisation);
 						
-						var mission = new THREE.Mesh(new TextGeometry( 'Mission', small_text_settings ), txt_mat);
-						mission.position.z = 0.85;
-						mission.position.y = -0.05;
-						mission.position.x = 0.14;
-						mission.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(mission);
-						
-						var activities = new THREE.Mesh(new TextGeometry( 'Aktiviteter', small_text_settings ), txt_mat);
-						activities.position.z = 1;
-						activities.position.y = -1.25;
-						activities.position.x = 0;
-						activities.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(activities);
-						
-						var conditions = new THREE.Mesh(new TextGeometry( 'Förutsättningar', small_text_settings ), txt_mat);
-						conditions.position.z = 1.25;
-						conditions.position.y = -2.45;
-						conditions.position.x = -0.25;
-						conditions.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(conditions);
-						
-						var processes = new THREE.Mesh(new TextGeometry( 'Processer', big_text_settings ), txt_mat);
-						processes.position.z = 3.23;
-						processes.position.y = -1.6;
-						processes.position.x = -2.26;
-						processes.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(processes);
-						
-						var facts = new THREE.Mesh(new TextGeometry( 'Fakta', small_text_settings ), txt_mat);
-						facts.position.z = 2.63;
-						facts.position.y = -2.13;
-						facts.position.x = -1.66;
-						facts.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(facts);
-						
-						var history = new THREE.Mesh(new TextGeometry( 'Historik', small_text_settings ), txt_mat);
-						history.position.z = 2.43;
-						history.position.y = -2.55;
-						history.position.x = -1.46;
-						history.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(history);
-						
-						var current_plans = new THREE.Mesh(new TextGeometry( 'Aktuella planer', small_text_settings ), txt_mat);
-						current_plans.position.z = 2.32;
-						current_plans.position.y = -3;
-						current_plans.position.x = -1.35;
-						current_plans.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(current_plans);
-						
-						var people = new THREE.Mesh(new TextGeometry( 'Personer', big_text_settings ), txt_mat);
-						people.position.z = -1.06;
-						people.position.y = -1.6;
-						people.position.x = 2.03;
-						people.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(people);
-						
-						var individuals = new THREE.Mesh(new TextGeometry( 'Individer', small_text_settings ), txt_mat);
-						individuals.position.z = -0.96;
-						individuals.position.y = -2.13;
-						individuals.position.x = 1.93;
-						individuals.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(individuals);
-						
-						var groups = new THREE.Mesh(new TextGeometry( 'Grupper', small_text_settings ), txt_mat);
-						groups.position.z = -0.66;
-						groups.position.y = -2.55;
-						groups.position.x = 1.63;
-						groups.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(groups);
-						
-						var organisation = new THREE.Mesh(new TextGeometry( 'Organisation', small_text_settings ), txt_mat);
-						organisation.position.z = -0.12;
-						organisation.position.y = -3;
-						organisation.position.x = 1.09;
-						organisation.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(organisation);
-						} );
+						});
 					break;
 					case 2:
-						camera.position.set(6.5,2.5,6.5);
-						addLight( 0.59, 0.8, 0.5,-5, 7, -20 );
 						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
-						let big_text_settings = {
-							font: font,
-							size: 0.28,
-							height: 0.03,
-							curveSegments: 12,
-							bevelEnabled: false,
-							bevelThickness: 0.1,
-							bevelSize: 0.1,
-							bevelSegments: 0.1
-						};
-						let small_text_settings = {
-							font: font,
-							size: 0.2,
-							height: 0.03,
-							curveSegments: 12,
-							bevelEnabled: false,
-							bevelThickness: 0.1,
-							bevelSize: 0.1,
-							bevelSegments: 0.1
-						};
-						var plans = new THREE.Mesh(new TextGeometry( 'Planer', big_text_settings ), txt_mat);
-						plans.position.z = 0.93;
-						plans.position.y = 1;
-						plans.position.x = 0.06;
-						plans.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(plans);
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var mission = getSmallText('Mission', 0.14, -0.05, 0.85, txt_mat, font);
+							objects[26].add(mission);
+							
+							var processes = getBigText('Processer', -2.26, -1.6, 3.23, txt_mat, font);
+							objects[26].add(processes);
+							
+							var facts = getSmallText('Fakta', -1.66, -2.13, 2.63, txt_mat, font);
+							objects[26].add(facts);
+							
+							var history = getSmallText('Historik', -1.46, -2.55, 2.43, txt_mat, font);
+							objects[26].add(history);
+							
+							var current_plans = getSmallText('Aktuella planer', -1.35, -3, 2.32, txt_mat, font);
+							objects[26].add(current_plans);
+							
+							var people = getBigText('Personer', 2.03, -1.6, -1.06, txt_mat, font);
+							objects[26].add(people);
+							
+							var individuals = getSmallText('Individer', 1.93, -2.13, -0.96, txt_mat, font);
+							objects[26].add(individuals);
+							
+							var groups = getSmallText('Grupper', 1.63, -2.55, -0.66, txt_mat, font);
+							objects[26].add(groups);
+							
+							var organisation = getSmallText('Organisation', 1.09, -3, -0.12, txt_mat, font);
+							objects[26].add(organisation);
 						
-						var mission = new THREE.Mesh(new TextGeometry( 'Mission', small_text_settings ), txt_mat);
-						mission.position.z = 0.85;
-						mission.position.y = -0.05;
-						mission.position.x = 0.14;
-						mission.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(mission);
-						
-						var processes = new THREE.Mesh(new TextGeometry( 'Processer', big_text_settings ), txt_mat);
-						processes.position.z = 3.23;
-						processes.position.y = -1.6;
-						processes.position.x = -2.26;
-						processes.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(processes);
-						
-						var facts = new THREE.Mesh(new TextGeometry( 'Fakta', small_text_settings ), txt_mat);
-						facts.position.z = 2.63;
-						facts.position.y = -2.13;
-						facts.position.x = -1.66;
-						facts.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(facts);
-						
-						var history = new THREE.Mesh(new TextGeometry( 'Historik', small_text_settings ), txt_mat);
-						history.position.z = 2.43;
-						history.position.y = -2.55;
-						history.position.x = -1.46;
-						history.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(history);
-						
-						var current_plans = new THREE.Mesh(new TextGeometry( 'Aktuella planer', small_text_settings ), txt_mat);
-						current_plans.position.z = 2.32;
-						current_plans.position.y = -3;
-						current_plans.position.x = -1.35;
-						current_plans.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(current_plans);
-						
-						var people = new THREE.Mesh(new TextGeometry( 'Personer', big_text_settings ), txt_mat);
-						people.position.z = -1.06;
-						people.position.y = -1.6;
-						people.position.x = 2.03;
-						people.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(people);
-						
-						var individuals = new THREE.Mesh(new TextGeometry( 'Individer', small_text_settings ), txt_mat);
-						individuals.position.z = -0.96;
-						individuals.position.y = -2.13;
-						individuals.position.x = 1.93;
-						individuals.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(individuals);
-						
-						var groups = new THREE.Mesh(new TextGeometry( 'Grupper', small_text_settings ), txt_mat);
-						groups.position.z = -0.66;
-						groups.position.y = -2.55;
-						groups.position.x = 1.63;
-						groups.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(groups);
-						
-						var organisation = new THREE.Mesh(new TextGeometry( 'Organisation', small_text_settings ), txt_mat);
-						organisation.position.z = -0.12;
-						organisation.position.y = -3;
-						organisation.position.x = 1.09;
-						organisation.rotation.set(0, Math.PI/4, 0);
-						objects[26].add(organisation);
-						} );
+						});
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(Math.floor(i / 3) % 3 == 2) {
 								cube.sections[i].active = 1;
@@ -556,6 +442,38 @@
 						}
 					break;
 					case 3:
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var activities = getSmallText('Aktiviteter', 0, -1.25, 1, txt_mat, font);
+							objects[26].add(activities);
+							
+							var processes = getBigText('Processer', -2.26, -1.6, 3.23, txt_mat, font);
+							objects[26].add(processes);
+							
+							var facts = getSmallText('Fakta', -1.66, -2.13, 2.63, txt_mat, font);
+							objects[26].add(facts);
+							
+							var history = getSmallText('Historik', -1.46, -2.55, 2.43, txt_mat, font);
+							objects[26].add(history);
+							
+							var current_plans = getSmallText('Aktuella planer', -1.35, -3, 2.32, txt_mat, font);
+							objects[26].add(current_plans);
+							
+							var people = getBigText('Personer', 2.03, -1.6, -1.06, txt_mat, font);
+							objects[26].add(people);
+							
+							var individuals = getSmallText('Individer', 1.93, -2.13, -0.96, txt_mat, font);
+							objects[26].add(individuals);
+							
+							var groups = getSmallText('Grupper', 1.63, -2.55, -0.66, txt_mat, font);
+							objects[26].add(groups);
+							
+							var organisation = getSmallText('Organisation', 1.09, -3, -0.12, txt_mat, font);
+							objects[26].add(organisation);
+						
+						});
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(Math.floor(i / 3) % 3 == 1) {
 								cube.sections[i].active = 1;
@@ -565,6 +483,38 @@
 						}
 					break;
 					case 4:
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var conditions = getSmallText('Förutsättningar', -0.25, -2.45, 1.25, txt_mat, font);
+							objects[26].add(conditions);
+							
+							var processes = getBigText('Processer', -2.26, -1.6, 3.23, txt_mat, font);
+							objects[26].add(processes);
+							
+							var facts = getSmallText('Fakta', -1.66, -2.13, 2.63, txt_mat, font);
+							objects[26].add(facts);
+							
+							var history = getSmallText('Historik', -1.46, -2.55, 2.43, txt_mat, font);
+							objects[26].add(history);
+							
+							var current_plans = getSmallText('Aktuella planer', -1.35, -3, 2.32, txt_mat, font);
+							objects[26].add(current_plans);
+							
+							var people = getBigText('Personer', 2.03, -1.6, -1.06, txt_mat, font);
+							objects[26].add(people);
+							
+							var individuals = getSmallText('Individer', 1.93, -2.13, -0.96, txt_mat, font);
+							objects[26].add(individuals);
+							
+							var groups = getSmallText('Grupper', 1.63, -2.55, -0.66, txt_mat, font);
+							objects[26].add(groups);
+							
+							var organisation = getSmallText('Organisation', 1.09, -3, -0.12, txt_mat, font);
+							objects[26].add(organisation);
+						
+						});
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(Math.floor(i / 3) % 3 == 0) {
 								cube.sections[i].active = 1;
@@ -574,6 +524,38 @@
 						}
 					break;
 					case 5:
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var mission = getSmallText('Mission', 0.14, -0.05, 0.85, txt_mat, font);
+							objects[26].add(mission);
+							
+							var activities = getSmallText('Aktiviteter', 0, -1.25, 1, txt_mat, font);
+							objects[26].add(activities);
+							
+							var conditions = getSmallText('Förutsättningar', -0.25, -2.45, 1.25, txt_mat, font);
+							objects[26].add(conditions);
+							
+							var processes = getBigText('Processer', -2.26, -1.6, 3.23, txt_mat, font);
+							objects[26].add(processes);
+							
+							var facts = getSmallText('Fakta', -1.66, -2.13, 2.63, txt_mat, font);
+							objects[26].add(facts);
+							
+							var people = getBigText('Personer', 2.03, -1.6, -1.06, txt_mat, font);
+							objects[26].add(people);
+							
+							var individuals = getSmallText('Individer', 1.93, -2.13, -0.96, txt_mat, font);
+							objects[26].add(individuals);
+							
+							var groups = getSmallText('Grupper', 1.63, -2.55, -0.66, txt_mat, font);
+							objects[26].add(groups);
+							
+							var organisation = getSmallText('Organisation', 1.09, -3, -0.12, txt_mat, font);
+							objects[26].add(organisation);
+						
+						});
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(i % 3 == 0) {
 								cube.sections[i].active = 1;
@@ -583,6 +565,38 @@
 						}
 					break;
 					case 6:
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var mission = getSmallText('Mission', 0.14, -0.05, 0.85, txt_mat, font);
+							objects[26].add(mission);
+							
+							var activities = getSmallText('Aktiviteter', 0, -1.25, 1, txt_mat, font);
+							objects[26].add(activities);
+							
+							var conditions = getSmallText('Förutsättningar', -0.25, -2.45, 1.25, txt_mat, font);
+							objects[26].add(conditions);
+							
+							var processes = getBigText('Processer', -2.26, -1.6, 3.23, txt_mat, font);
+							objects[26].add(processes);
+							
+							var history = getSmallText('Historik', -1.46, -2.55, 2.43, txt_mat, font);
+							objects[26].add(history);
+							
+							var people = getBigText('Personer', 2.03, -1.6, -1.06, txt_mat, font);
+							objects[26].add(people);
+							
+							var individuals = getSmallText('Individer', 1.93, -2.13, -0.96, txt_mat, font);
+							objects[26].add(individuals);
+							
+							var groups = getSmallText('Grupper', 1.63, -2.55, -0.66, txt_mat, font);
+							objects[26].add(groups);
+							
+							var organisation = getSmallText('Organisation', 1.09, -3, -0.12, txt_mat, font);
+							objects[26].add(organisation);
+						
+						});
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(i % 3 == 1) {
 								cube.sections[i].active = 1;
@@ -592,6 +606,38 @@
 						}
 					break;
 					case 7:
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var mission = getSmallText('Mission', 0.14, -0.05, 0.85, txt_mat, font);
+							objects[26].add(mission);
+							
+							var activities = getSmallText('Aktiviteter', 0, -1.25, 1, txt_mat, font);
+							objects[26].add(activities);
+							
+							var conditions = getSmallText('Förutsättningar', -0.25, -2.45, 1.25, txt_mat, font);
+							objects[26].add(conditions);
+							
+							var processes = getBigText('Processer', -2.26, -1.6, 3.23, txt_mat, font);
+							objects[26].add(processes);
+							
+							var current_plans = getSmallText('Aktuella planer', -1.35, -3, 2.32, txt_mat, font);
+							objects[26].add(current_plans);
+							
+							var people = getBigText('Personer', 2.03, -1.6, -1.06, txt_mat, font);
+							objects[26].add(people);
+							
+							var individuals = getSmallText('Individer', 1.93, -2.13, -0.96, txt_mat, font);
+							objects[26].add(individuals);
+							
+							var groups = getSmallText('Grupper', 1.63, -2.55, -0.66, txt_mat, font);
+							objects[26].add(groups);
+							
+							var organisation = getSmallText('Organisation', 1.09, -3, -0.12, txt_mat, font);
+							objects[26].add(organisation);
+						
+						});
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(i % 3 == 2) {
 								cube.sections[i].active = 1;
@@ -601,8 +647,40 @@
 						}
 					break;
 					case 8:
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var mission = getSmallText('Mission', 0.14, -0.05, 0.85, txt_mat, font);
+							objects[26].add(mission);
+							
+							var activities = getSmallText('Aktiviteter', 0, -1.25, 1, txt_mat, font);
+							objects[26].add(activities);
+							
+							var conditions = getSmallText('Förutsättningar', -0.25, -2.45, 1.25, txt_mat, font);
+							objects[26].add(conditions);
+							
+							var processes = getBigText('Processer', -2.26, -1.6, 3.23, txt_mat, font);
+							objects[26].add(processes);
+							
+							var facts = getSmallText('Fakta', -1.66, -2.13, 2.63, txt_mat, font);
+							objects[26].add(facts);
+							
+							var history = getSmallText('Historik', -1.46, -2.55, 2.43, txt_mat, font);
+							objects[26].add(history);
+							
+							var current_plans = getSmallText('Aktuella planer', -1.35, -3, 2.32, txt_mat, font);
+							objects[26].add(current_plans);
+							
+							var people = getBigText('Personer', 2.03, -1.6, -1.06, txt_mat, font);
+							objects[26].add(people);
+							
+							var organisation = getSmallText('Organisation', 1.09, -3, -0.12, txt_mat, font);
+							objects[26].add(organisation);
+						
+						});
 						for (let i = 0; i < cube.sections.length; i++) {
-							if(Math.floor(i / 9) == 0) {
+							if(Math.floor(i / 9) == 2) {
 								cube.sections[i].active = 1;
 							} else {
 								cube.sections[i].active = 0;
@@ -610,6 +688,38 @@
 						}
 					break;
 					case 9:
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var mission = getSmallText('Mission', 0.14, -0.05, 0.85, txt_mat, font);
+							objects[26].add(mission);
+							
+							var activities = getSmallText('Aktiviteter', 0, -1.25, 1, txt_mat, font);
+							objects[26].add(activities);
+							
+							var conditions = getSmallText('Förutsättningar', -0.25, -2.45, 1.25, txt_mat, font);
+							objects[26].add(conditions);
+							
+							var processes = getBigText('Processer', -2.26, -1.6, 3.23, txt_mat, font);
+							objects[26].add(processes);
+							
+							var facts = getSmallText('Fakta', -1.66, -2.13, 2.63, txt_mat, font);
+							objects[26].add(facts);
+							
+							var history = getSmallText('Historik', -1.46, -2.55, 2.43, txt_mat, font);
+							objects[26].add(history);
+							
+							var current_plans = getSmallText('Aktuella planer', -1.35, -3, 2.32, txt_mat, font);
+							objects[26].add(current_plans);
+							
+							var people = getBigText('Personer', 2.03, -1.6, -1.06, txt_mat, font);
+							objects[26].add(people);
+							
+							var groups = getSmallText('Grupper', 1.63, -2.55, -0.66, txt_mat, font);
+							objects[26].add(groups);
+						
+						});
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(Math.floor(i / 9) == 1) {
 								cube.sections[i].active = 1;
@@ -619,8 +729,40 @@
 						}
 					break;
 					case 10:
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var mission = getSmallText('Mission', 0.14, -0.05, 0.85, txt_mat, font);
+							objects[26].add(mission);
+							
+							var activities = getSmallText('Aktiviteter', 0, -1.25, 1, txt_mat, font);
+							objects[26].add(activities);
+							
+							var conditions = getSmallText('Förutsättningar', -0.25, -2.45, 1.25, txt_mat, font);
+							objects[26].add(conditions);
+							
+							var processes = getBigText('Processer', -2.26, -1.6, 3.23, txt_mat, font);
+							objects[26].add(processes);
+							
+							var facts = getSmallText('Fakta', -1.66, -2.13, 2.63, txt_mat, font);
+							objects[26].add(facts);
+							
+							var history = getSmallText('Historik', -1.46, -2.55, 2.43, txt_mat, font);
+							objects[26].add(history);
+							
+							var current_plans = getSmallText('Aktuella planer', -1.35, -3, 2.32, txt_mat, font);
+							objects[26].add(current_plans);
+							
+							var people = getBigText('Personer', 2.03, -1.6, -1.06, txt_mat, font);
+							objects[26].add(people);
+							
+							var individuals = getSmallText('Individer', 1.93, -2.13, -0.96, txt_mat, font);
+							objects[26].add(individuals);
+						
+						});
 						for (let i = 0; i < cube.sections.length; i++) {
-							if(Math.floor(i / 9) == 2) {
+							if(Math.floor(i / 9) == 0) {
 								cube.sections[i].active = 1;
 							} else {
 								cube.sections[i].active = 0;
@@ -638,35 +780,22 @@
 								}
 							}
 						}
-						document.getElementById("color-scale-container").style.display = "block";
 					break;
 					case 12:
-						for (let i = 0; i < cube.sections.length; i++) {
-							let connections = getSectionConnections(cube, cube.sections[i].id);
-							for (let j = 0; j < connections.length; j++) {
-								if(Math.random() < 0.5) {
-									connections[j].strength = 0;
-								} else {
-									connections[j].strength = 100;
-								}
-							}
-						}
-						for (let i = 0; i < cube.sections.length; i++) {
-							if(Math.floor(i / 9) == 0) {
-								cube.sections[i].active = 1;
-							} else {
-								cube.sections[i].active = 0;
-							}
-						}
-					break;
-					case 13:
-						for (let i = 0; i < cube.sections.length; i++) {
-							if(i == 26) {
-								cube.sections[i].active = 1;
-							} else {
-								cube.sections[i].active = 0;
-							}
-						}
+						camera.position.set(5.5,2.5,5.5);
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var mission = getSmallText('Mission', 0.14, -0.05, 0.85, txt_mat, font);
+							objects[26].add(mission);
+							
+							var activities = getSmallText('Aktiviteter', 0, -1.25, 1, txt_mat, font);
+							objects[26].add(activities);
+							
+							var conditions = getSmallText('Förutsättningar', -0.25, -2.45, 1.25, txt_mat, font);
+							objects[26].add(conditions);
+						} );
 					break;
 				}
 				title += "/" + pres_texts.length + ")";
@@ -694,7 +823,7 @@
 				if(!section.active) {
 					return {color: "#333"}
 				}
-				let strength = getStrength(cube, section);
+				let strength = getStrength(cube, section, pres_index);
 				let r, g;
 				let b = "00";
 				if(strength <= 50) {

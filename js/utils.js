@@ -98,7 +98,7 @@ function getSectionConnections(cube, id) {
     return connections;
 }
 
-function getStrength(cube, section) {
+function getStrength(cube, section, pres_index) {
 	let strength = 0;
 	let num_connections = 0
 	const connections = getSectionConnections(cube, section.id);
@@ -109,7 +109,11 @@ function getStrength(cube, section) {
 		}
 	}
 	if(num_connections == 0) {
-		return 0;
+		if(pres_index < 0) {
+			return 0;
+		} else {
+			return 100;
+		}
 	} else {
 		return Math.round(strength / num_connections);
 	}
