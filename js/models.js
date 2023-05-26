@@ -121,6 +121,78 @@ function new_std_section(pos) {
 	}
 	section.title = title;
 	switch (pos) {
+		case 0:
+			section.intro = 'Här finns forskning och fakta samlat om Förutsättningar för individer med vad som krävs för att klara av att genomföra aktiviteter som ska leda till att nå olika missions med visioner och mål.<br><br>Externa förutsättningar kan vara:<ul><li>Praktiska (Konjunktur, politik, konkurrens, organisationens resurser, etc)</li><li>Psykologiska (Kultur, trender i omvärlden och i organisationen, etc)</li></ul>Interna förutsättningar kan vara:<ul><li>Praktiska (Ekonomi, lokaler, datakapacitet, etc)</li><li>Psykologiska (Kompetens, motivation, kultur, personligheter, beteendemönster, etc)</li></ul>'
+		break;
+		case 1:
+			section.intro = 'Här finns tidigare Förutsättningar för individen lagrade med vad man bedömde krävdes för att klara av att genomföra de aktiviteter som skulle leda till att nå missions med visioner och mål. Här finns även lagrat vilka förutsättningar som fanns i verkligheten samt vad det gav för resultat.<br><br>Externa förutsättningar kan vara:<ul><li>Praktiska (Konjunktur, politik, konkurrens, organisationens resurser, etc)</li><li>Psykologiska (Kultur, trender i omvärlden och i organisationen, etc)</li></ul>Interna förutsättningar kan vara:<ul><li>Praktiska (Ekonomi, lokaler, datakapacitet, etc)</li><li>Psykologiska (Kompetens, motivation, kultur, personligheter, beteendemönster, etc)</li></ul>'
+		break;
+		case 2:
+			section.intro = 'Här arbetar man med de Förutsättningar som krävs av individen för att klara av genomförandet av de aktiviteter man definierat för att nå en specifik mission med visioner och mål.<br><br>Externa förutsättningar kan vara:<ul><li>Praktiska (Konjunktur, politik, konkurrens, organisationens resurser, etc)</li><li>Psykologiska (Kultur, trender i omvärlden och i organisationen, etc)</li></ul>Interna förutsättningar kan vara:<ul><li>Praktiska (Ekonomi, lokaler, datakapacitet, etc)</li><li>Psykologiska (Kompetens, motivation, kultur, personligheter, beteendemönster, etc)</li></ul>'
+		break;
+		case 3:
+			section.intro = 'Här finns fakta och forskning samlat om hur man arbetar man med Aktiviteter för individer med syftet att genomföra olika missions och uppnå visioner och mål. Det kan vara ett för större eller mindre uppdrag, på kortare eller längre sikt.<br><br>Exempelvis:<ul><li>Hur arbetar man med effektiva strategier för olika områden?</li><li>Hur skapar man samverkan med andra personer, grupper och hela organisationen?</li><li>Hur arbetar man med effektiva taktiska planer?</li><li>Hur planerar man för kontinuerlig uppföljning av aktiviteter och resultat?</li><li>Hur undviker man vanliga misstag i olika typer av verksamheter?</li></ul>'
+		break;
+		case 4:
+			section.intro = 'Här finns tidigare Aktiviteter för individer lagrade med vad det gav för resultat. Vilka aktiviteter satsades på för att genomföra Missions och uppnå Visioner och Övergripande Mål? Syftet är att dra lärdomar inför nya aktiviteter.<br><br>Exempelvis:<ul><li>Strategier för olika områden</li><li>Samverkan med andra personer, grupper och hela organisationen</li><li>Taktiska planer</li><li>Detaljerade planer för uppföljning</li><li>Vilka resultat uppnåddes?</li></ul>'
+		break;
+		case 5:
+			section.intro = 'Här arbetar man med Aktiviteter för en individ för att kunna genomföra en specifik Mission och uppnå dess Visioner och Mål.<br><br>Det kan handla om:<ul><li>Strategier för olika områden</li><li>Samverkan med andra personer, grupper och hela organisationen</li><li>Taktiska planer</li><li>Detaljerade planer för uppföljning</li></ul>'
+		break;
+		case 6:
+			section.intro = 'Här finns fakta och forskning samlat om hur man arbetar man med en individs Mission. Det kan vara större eller mindre uppdrag, på kortare eller längre sikt.<ul><li>Hur formulerar man ett uppdrag med syfte och mål?</li><li>Hur arbetar man med en verksamhetsidé för en individ?</li><li>Hur sätter man effektiva mål?</li><li>Hur formulerar man kraftfulla visioner?</li><li>Hur följer man upp ett uppdrag?</li></ul>'
+		break;
+		case 7:
+			section.intro = 'Här finns tidigare Missions för individer lagrade med vad det gav för resultat. Syftet är att dra lärdomar inför nya uppdrag.<ul><li>Hur såg uppdragen ut?</li><li>Vad skulle uppnås?</li><li>Vilka resultat nåddes?</li><li>Hur skedde uppföljningen?</li></ul>'
+		break;
+		case 8:
+			section.intro = 'Här arbetar man med Mission för en individ. Det kan vara ett större eller mindre uppdrag, på kortare eller längre sikt.<ul><li>Hur ser uppdraget ut?</li><li>Vad skall uppnås?</li><li>Hur ser uppföljningen ut?</li></ul>Exempel: Verksamhetsidé, projektidé, visioner och mål.'
+		break;
+		case 9:
+			section.intro = 'Här finns forskning och fakta samlat om Förutsättningar för grupper med vad som krävs för att klara av att genomföra aktiviteter som ska leda till att nå olika missions med visioner och mål.<br><br>Externa förutsättningar kan vara:<ul><li>Praktiska (Konjunktur, politik, konkurrens, organisationens resurser, etc)</li><li>Psykologiska (Kultur, trender i omvärlden och i organisationen, etc)</li></ul>Interna förutsättningar kan vara:<ul><li>Praktiska (Ekonomi, lokaler, datakapacitet, etc)</li><li>Psykologiska (Kompetens, motivation, kultur, personligheter, beteendemönster, etc)</li></ul>'
+		break;
+		case 10:
+			section.intro = 'Här finns tidigare Förutsättningar för grupper lagrade med vad man bedömde krävdes för att klara av att genomföra de aktiviteter som skulle leda till att nå missions med visioner och mål. Här finns även lagrat vilka förutsättningar som fanns i verkligheten samt vad det gav för resultat.<br><br>Det handlar om Externa förutsättningar som:<ul><li>Praktiska (Konjunktur, politik, konkurrens, etc)</li><li>Psykologiska (Kultur, trender, etc)</li></ul>Samt Interna förutsättningar som:<ul><li>Praktiska (Ekonomi, lokaler, datakapacitet, etc)</li><li>Psykologiska (Kompetens, motivation, kultur, personligheter, beteendemönster, etc)</li></ul>'
+		break;
+		case 11:
+			section.intro = 'Här arbetar man med de Förutsättningar som krävs av gruppen för att klara av genomförandet av de aktiviteter man definierat för att nå en specifik mission med visioner och mål.<br><br>Externa förutsättningar kan vara:<ul><li>Praktiska (Konjunktur, politik, konkurrens, organisationens resurser, etc)</li><li>Psykologiska (Kultur, trender i omvärlden och i organisationen, etc)</li></ul>Interna förutsättningar kan vara:<ul><li>Praktiska (Ekonomi, lokaler, datakapacitet, etc)</li><li>Psykologiska (Kompetens, motivation, kultur, personligheter, beteendemönster, etc)</li></ul>'
+		break;
+		case 12:
+			section.intro = 'Här finns fakta och forskning samlat om hur man arbetar man med Aktiviteter för grupper med syftet att genomföra olika Missions och uppnå Visioner och Övergripande Mål Det kan vara ett för större eller mindre uppdrag, på kortare eller längre sikt.<br><br>Exempelvis:<ul><li>Hur arbetar man med effektiva strategier för olika områden?</li><li>Hur skapar man samverkan mellan olika enheter?</li><li>Hur arbetar man med effektiva taktiska planer?</li><li>Hur planerar man för kontinuerlig uppföljning av aktiviteter och resultat?</li><li>Hur undviker man vanliga misstag i olika typer av verksamheter?</li></ul>'
+		break;
+		case 13:
+			section.intro = 'Här finns tidigare Aktiviteter för grupper lagrade med vad det gav för resultat. Vilka aktiviteter satsades på för att genomföra Missions och uppnå Visioner och Övergripande Mål? Syftet är att dra lärdomar inför nya aktiviteter.<br><br>Exempelvis:<ul><li>Strategier för olika områden</li><li>Samverkan mellan olika enheter</li><li>Taktiska planer</li><li>Detaljerade planer för uppföljning</li><li>Vilka resultat uppnåddes?</li></ul>'
+		break;
+		case 14:
+			section.intro = 'Här arbetar man med Aktiviteter för en grupp för att kunna genomföra en specifik Mission och uppnå dess Visioner och Mål.<br><br>Det kan handla om:<ul><li>Strategier för olika områden</li><li>Samverkan mellan olika grupper och hela organisationen</li><li>Taktiska planer</li><li>Detaljerade planer för uppföljning</li></ul>'
+		break;
+		case 15:
+			section.intro = 'Här finns fakta och forskning samlat om hur man arbetar man med en grupps Mission. Det kan vara större eller mindre uppdrag, på kortare eller längre sikt.<ul><li>Hur formulerar man ett uppdrag med syfte och mål?</li><li>Hur arbetar man med en verksamhetsidé för en grupp?</li><li>Hur sätter man effektiva mål?</li><li>Hur formulerar man kraftfulla visioner?</li><li>Hur följer man upp ett uppdrag?</li></ul>'
+		break;
+		case 16:
+			section.intro = 'Här finns tidigare Missions för grupper lagrade med vad det gav för resultat. Syftet är att dra lärdomar inför nya uppdrag.<ul><li>Hur såg uppdragen ut?</li><li>Vad skulle uppnås?</li><li>Vilka resultat nåddes?</li><li>Hur skedde uppföljningen?</li></ul>'
+		break;
+		case 17:
+			section.intro = 'Här arbetar man med Mission för en grupp. Det kan vara ett större eller mindre uppdrag, på kortare eller längre sikt.<ul><li>Hur ser uppdraget ut?</li><li>Vad skall uppnås?</li><li>Hur ser uppföljningen ut?</li></ul>Exempel: Verksamhetsidé, projektidé, visioner och mål.'
+		break;
+		case 18:
+			section.intro = 'Här finns forskning och fakta samlat om Förutsättningar för organisationer med vad som krävs för att klara av att genomföra aktiviteter som ska leda till att nå olika missions med visioner och mål.<br><br>Det handlar bland annat om Externa förutsättningar som:<ul><li>Praktiska (Konjunktur, politik, konkurrens, etc)</li><li>Psykologiska (Kultur, trender, etc)</li></ul>Samt interna förutsättningar som:<ul><li>Praktiska (Ekonomi, lokaler, datakapacitet, etc)</li><li>Psykologiska (Kompetens, motivation, kultur, personligheter, beteendemönster, etc)</li></ul>'
+		break;
+		case 19:
+			section.intro = 'Här finns tidigare Förutsättningar för organisationen lagrade med vad man bedömde krävdes för att klara av att genomföra de aktiviteter som skulle leda till att nå missions med visioner och mål. Här finns även lagrat vilka förutsättningar som fanns i verkligheten samt vad det gav för resultat.<br><br>Det handlar om Externa förutsättningar som kan vara:<ul><li>Praktiska (Konjunktur, politik, konkurrens, etc)</li><li>Psykologiska (Kultur, trender, etc)</li></ul>Samt Interna förutsättningar som:<ul><li>Praktiska (Ekonomi, lokaler, datakapacitet, etc)</li><li>Psykologiska (Kompetens, motivation, kultur, personligheter, beteendemönster, etc)</li></ul>'
+		break;
+		case 20:
+			section.intro = 'Här arbetar man med de Förutsättningar som krävs av organisationen för att skall klara av genomförandet av de aktiviteter man definierat för att nå en specifik mission med visioner och mål.<br><br>Externa förutsättningar kan vara:<ul><li>Praktiska (Konjunktur, politik, konkurrens, etc)</li><li>Psykologiska (Kultur, trender, etc)</li></ul>Interna förutsättningar kan vara:<ul><li>Praktiska (Ekonomi, lokaler, datakapacitet, etc)</li><li>Psykologiska (Kompetens, motivation, kultur, personligheter, beteendemönster, etc)</li></ul>'
+		break;
+		case 21:
+			section.intro = 'Här finns fakta och forskning samlat om hur man tar fram Aktiviteter för en organisation med syftet att genomföra olika Missions och uppnå Visioner och Övergripande Mål. Det kan vara ett för större eller mindre uppdrag, på kortare eller längre sikt.<br><br>Exempelvis:<ul><li>Hur arbetar man med effektiva strategier för olika områden?</li><li>Hur skapar man samverkan mellan olika enheter?</li><li>Hur arbetar man med effektiva taktiska planer?</li><li>Hur planerar man för kontinuerlig uppföljning av aktiviteter och resultat?</li><li>Hur undviker man vanliga misstag i olika typer av verksamheter?</li></ul>'
+		break;
+		case 22:
+			section.intro = 'Här finns tidigare Aktiviteter för organisationen lagrade med vad det gav för resultat. Vilka aktiviteter satsades på för att genomföra Missions och uppnå Visioner och Övergripande Mål? Syftet är att dra lärdomar inför nya aktiviteter.<br><br>Exampelvis:<ul><li>Strategier för olika områden</li><li>Samverkan mellan olika enheter</li><li>Taktiska planer</li><li>Detaljerade planer för uppföljning</li><li>Vilka resultat uppnåddes?</li></ul>'
+		break;
+		case 23:
+			section.intro = 'Här arbetar man med Aktiviteter för en organisations för att kunna genomföra en specifik Mission och uppnå dess Visioner och Mål.<br><br>Det kan handla om:<ul><li>Strategier för olika områden</li><li>Samverkan mellan olika enheter</li><li>Taktiska planer</li><li>Detaljerade planer för uppföljning</li></ul>'
+		break;
 		case 24:
 			section.intro = 'Här finns fakta och forskning samlat om hur man arbetar med Mission för en organisation. Det kan vara ett större eller mindre uppdrag, på kortare eller längre sikt.<ul><li>Hur arbetar man med en affärs- eller verksamhetsidé?</li><li>Hur formulerar man ett uppdrag med syfte och mål?</li><li>Hur sätter man effektiva mål?</li><li>Hur formulerar man kraftfulla visioner?</li><li>Hur följer man upp ett uppdrag?</li></ul>'
 		break;
