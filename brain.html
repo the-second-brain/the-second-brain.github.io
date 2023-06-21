@@ -72,7 +72,7 @@
 		    					
 		    					"Här tas planer fram för individer (Mission, Aktiviteter och Förutsättningar). Arbetet görs med hjälp av AI utifrån forskning och fakta samt historik från individens liknande arbeten.<br><br>Till exempel:<ul><li>Vilka Aktiviteter är realistiska för individen att genomföra med olika Förutsättningar?</li><li>Vilka Mål är realistiska för individen att nå med olika Aktiviteter?</li><li>Vilka Konsekvenser leder olika typer av scenarion till för individen?</li></ul>",
 		    					
-		    					"Projektets områden samverkar med varandra på olika sätt och över flera nivåer. The Second Brain hanterar områden som är nära kopplade till varandra och ger möjlighet att bedöma hur väl kopplade områden fungerar tillsammans.<br><br>Områden som samverkar väl markeras med blått och områden som inte fungerar tillsammans med andra markeras med rött.<br><br>Röd färg indikerar att området kräver mer arbete eller att kopplade områden behöver förändras.",
+		    					"Samtliga delar i systemet, <b>Planer</b>, <b>Processer</b> och <b>Personer</b> samverkar med varandra med stöd av AI. Utifrån forskning, fakta och tidigare erfarenheter av liknande uppdrag stöder AI formuleringen av Mission med uppdrag, visioner och mål.<br><br>På samma sätt hjälper AI till att formulera de <i>Aktiviteter</i> som krävs för att genomföra uppdraget och uppnå satta visioner och mål samt säkerställer att rätt <i>Förutsättningar</i> finns för att genomföra aktiviteterna på rätt sätt. Dessutom möjliggör systemet att koppla samman och hantera sambanden mellan organisationers, gruppers och individers arbeten.<br><br>Genom AI-stödd samverkan mellan Planer, Processer och Personer kan organisationen skapa en arbetsmiljö där alla delar fungerar tillsammans med effektiv kommunikation och samarbete och därmed uppnå större framgång.<br><br>Områden som samverkar väl markeras med blått och områden som inte fungerar tillsammans med andra och kräver mer arbete markeras med rött.",
 		    					
 		    					'QBrain är ett AI-baserat stöd för planering, genomförande och uppföljning av alla typer av uppdrag, stora som små för hela organisationer, grupper och individer. Man utgår ifrån uppdragets Mission (Idé. Syfte, Mål och Visioner), tar fram Aktiviteter (Strategier, Taktiska planer, Handlingsplaner) samt Förutsättningar (Externa o Interna – Praktiska o Psykologiska). Allt stäms av mot forskning och fakta samt tidigare erfarenheter av liknande uppdrag.'];
 		    
@@ -770,6 +770,44 @@
 						}
 					break;
 					case 11:
+						loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/droid/droid_sans_bold.typeface.json',function(font) {
+							var plans = getBigText('Planer', 0.06, 1, 0.93, txt_mat, font);
+							objects[26].add(plans);
+							
+							var mission = getSmallText('Mission', 0.14, -0.05, 0.85, txt_mat, font);
+							objects[26].add(mission);
+							
+							var activities = getSmallText('Aktiviteter', 0, -1.25, 1, txt_mat, font);
+							objects[26].add(activities);
+							
+							var conditions = getSmallText('Förutsättningar', -0.25, -2.45, 1.25, txt_mat, font);
+							objects[26].add(conditions);
+							
+							var processes = getBigText('Processer', -2.26, -1.6, 3.23, txt_mat, font);
+							objects[26].add(processes);
+							
+							var facts = getSmallText('Fakta', -1.66, -2.13, 2.63, txt_mat, font);
+							objects[26].add(facts);
+							
+							var history = getSmallText('Historik', -1.46, -2.55, 2.43, txt_mat, font);
+							objects[26].add(history);
+							
+							var current_plans = getSmallText('Aktuella planer', -1.35, -3, 2.32, txt_mat, font);
+							objects[26].add(current_plans);
+							
+							var people = getBigText('Personer', 2.03, -1.6, -1.06, txt_mat, font);
+							objects[26].add(people);
+							
+							var individuals = getSmallText('Individer', 1.93, -2.13, -0.96, txt_mat, font);
+							objects[26].add(individuals);
+							
+							var groups = getSmallText('Grupper', 1.63, -2.55, -0.66, txt_mat, font);
+							objects[26].add(groups);
+							
+							var organisation = getSmallText('Organisation', 1.09, -3, -0.12, txt_mat, font);
+							objects[26].add(organisation);
+						
+						});
 						for (let i = 0; i < cube.sections.length; i++) {
 						let connections = getSectionConnections(cube, cube.sections[i].id)
 							for (let j = 0; j < connections.length; j++) {
