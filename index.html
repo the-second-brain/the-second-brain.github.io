@@ -35,7 +35,6 @@
 	 	   		</div>
  	   		</div>
 		</div>
-		<canvas id="background"; class="background"></canvas>
 		
     	<script>
     		if (!localStorage.hasOwnProperty('cubes')) {
@@ -87,24 +86,6 @@
 				  location.reload();
 			    }
 			}
-			
-			let num_particles = window.innerHeight * window.innerWidth / 5000;
-			let body = document.body, html = document.documentElement;
-
-			let height = Math.max( body.scrollHeight, body.offsetHeight, 
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );
-			document.getElementById('background').style.height = height;
-			window.onload = function() {
-			
-			  Particles.init({
-			    selector: '.background',
-			    maxParticles: num_particles.toFixed(0),
-		        color: '#333333',
-		        connectParticles: true,
-		        speed: 0.2
-			  });
-
-			};
 			
 		</script>
     </body>
