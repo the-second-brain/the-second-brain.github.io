@@ -323,6 +323,16 @@
 				location.reload();
 			}
 			
+			function gotoSection(title) {
+				let cube = getCurrentCube();
+				for (let i = 0; i < cube.sections.length; i++) {
+					if(cube.sections[i].userData.title == title) {
+						localStorage.setItem('current_section', cube.sections[i].userData.id);
+						window.location.href = "section";
+					}
+				}
+			}
+			
 			function openTab(evt, tabId, buttonId, tabs) {
 				var i, tablinks;
 				for (i = 0; i < tabs.length; i++) {
