@@ -326,8 +326,8 @@
 			function gotoSection(title) {
 				let cube = getCurrentCube();
 				for (let i = 0; i < cube.sections.length; i++) {
-					if(cube.sections[i].userData.title == title) {
-						localStorage.setItem('current_section', cube.sections[i].userData.id);
+					if(cube.sections[i].title == title) {
+						localStorage.setItem('current_section', cube.sections[i].id);
 						window.location.href = "section";
 					}
 				}
