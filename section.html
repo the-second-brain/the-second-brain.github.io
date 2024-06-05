@@ -181,6 +181,23 @@
 				}
 			}
 			
+			if(localStorage.hasOwnProperty('scroll_header')) {
+				let scrollTo = localStorage.getItem('scroll_header');
+				localStorage.removeItem('scroll_header');
+				let divs = document.getElementsByTagName('div');
+				for(let i = 0; i < divs.length; i++) {
+					if(divs[i].textContent.includes(scrollTo)) {
+						divs[i].scrollIntoView();
+					}
+				}
+			}
+			
+			function myScroll(id) {
+				const element = document.getElementById(id);
+
+				element.scrollIntoView();
+			}
+			
 			function confirm_archive(index, section_pos) {
 				let text = "Är du säker på att du vill arkivera artikeln?\nArtikeln flyttas till historiken.";
 			    if (confirm(text) == true) {
@@ -328,6 +345,17 @@
 				for (let i = 0; i < cube.sections.length; i++) {
 					if(cube.sections[i].title == title) {
 						localStorage.setItem('current_section', cube.sections[i].id);
+						window.location.href = "section";
+					}
+				}
+			}
+			
+			function gotoSection(title, header) {
+				let cube = getCurrentCube();
+				for (let i = 0; i < cube.sections.length; i++) {
+					if(cube.sections[i].title == title) {
+						localStorage.setItem('current_section', cube.sections[i].id);
+						localStorage.setItem('scroll_header', header);
 						window.location.href = "section";
 					}
 				}
