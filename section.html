@@ -184,18 +184,12 @@
 			if(localStorage.hasOwnProperty('scroll_header')) {
 				let scrollTo = localStorage.getItem('scroll_header');
 				localStorage.removeItem('scroll_header');
-				let boldText = document.getElementsByTagName('b');
-				for(let i = 0; i < boldText.length; i++) {
-					if(boldText[i].textContent.includes(scrollTo)) {
-						boldText[i].scrollIntoView();
+				let divs = document.getElementsByTagName('div');
+				for(let i = 0; i < divs.length; i++) {
+					if(divs[i].textContent.includes(scrollTo)) {
+						divs[i].scrollIntoView();
 					}
 				}
-			}
-			
-			function myScroll(id) {
-				const element = document.getElementById(id);
-
-				element.scrollIntoView();
 			}
 			
 			function confirm_archive(index, section_pos) {
